@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Open ArcPace</title>
+<meta name="description" content="Open ArcPace, the iPhone app that plans the best time to run.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://arcpace.app/">
+<meta name="apple-itunes-app" content="app-id=6815307156, app-argument=https://arcpace.app/open">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<style>
+  :root { --bg:#FBFBFD; --ink:#1B1F2A; --dim:#5A6070; --accent:#0E8A5C; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#07090F; --ink:#F4F6FB; --dim:rgba(244,246,251,0.72); --accent:#3DDC97; } }
+  html { background:var(--bg); color:var(--ink); }
+  body { margin:0; padding:72px 16px; font:17px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; text-align:center; }
+  img { border-radius:22px; }
+  h1 { font-size:26px; margin:20px 0 8px; }
+  p { color:var(--dim); margin:0 0 20px; }
+  a { color:var(--accent); font-weight:600; text-decoration:none; }
+</style>
+</head>
+<body>
+<!-- Universal Links land here when ArcPace isn't installed (or on a computer).
+     With the app installed, iOS opens it instead and this page never loads. -->
+<img src="/img/icon.png" width="96" height="96" alt="">
+<h1>ArcPace</h1>
+<p>This link opens the ArcPace app on iPhone.</p>
+<p id="store"><a href="/">See the app</a></p>
+<script>
+  // Mirrors the home page's APP_LIVE switch.
+  var APP_LIVE = false;
+  if (APP_LIVE) document.getElementById('store').innerHTML = '<a href="https://apps.apple.com/app/id6815307156">Get ArcPace on the App Store</a>';
+</script>
+</body>
+</html>
