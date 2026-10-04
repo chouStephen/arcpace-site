@@ -1,0 +1,1299 @@
+{
+ "generated": "2026-10-04",
+ "conditions": {
+  "windMph": 5,
+  "gustMph": 7,
+  "elevationFt": 0,
+  "sunSolarWm2": 800,
+  "tolerances": "default (3 of 5)"
+ },
+ "temps": [
+  50,
+  55,
+  60,
+  65,
+  70,
+  75,
+  80,
+  85,
+  90,
+  95
+ ],
+ "dews": [
+  30,
+  35,
+  40,
+  45,
+  50,
+  55,
+  60,
+  65,
+  70,
+  75
+ ],
+ "paces": [
+  480,
+  600,
+  720
+ ],
+ "bySum": [
+  {
+   "sum": 100,
+   "example": "56°F / dew point 44°F",
+   "shade": [
+    -4,
+    -7,
+    -12
+   ],
+   "sun": [
+    -3,
+    -6,
+    -10
+   ]
+  },
+  {
+   "sum": 110,
+   "example": "61°F / dew point 49°F",
+   "shade": [
+    -1,
+    -3,
+    -5
+   ],
+   "sun": [
+    -1,
+    -1,
+    -2
+   ]
+  },
+  {
+   "sum": 120,
+   "example": "66°F / dew point 54°F",
+   "shade": [
+    2,
+    3,
+    5
+   ],
+   "sun": [
+    3,
+    6,
+    9
+   ]
+  },
+  {
+   "sum": 130,
+   "example": "71°F / dew point 59°F",
+   "shade": [
+    8,
+    14,
+    21
+   ],
+   "sun": [
+    10,
+    17,
+    26
+   ]
+  },
+  {
+   "sum": 140,
+   "example": "76°F / dew point 64°F",
+   "shade": [
+    14,
+    24,
+    38
+   ],
+   "sun": [
+    16,
+    28,
+    44
+   ]
+  },
+  {
+   "sum": 150,
+   "example": "81°F / dew point 69°F",
+   "shade": [
+    23,
+    40,
+    61
+   ],
+   "sun": [
+    25,
+    44,
+    67
+   ]
+  },
+  {
+   "sum": 160,
+   "example": "86°F / dew point 74°F",
+   "shade": [
+    32,
+    55,
+    84
+   ],
+   "sun": [
+    35,
+    60,
+    92
+   ]
+  },
+  {
+   "sum": 170,
+   "example": "91°F / dew point 79°F",
+   "shade": [
+    43,
+    74,
+    113
+   ],
+   "sun": [
+    49,
+    84,
+    127
+   ]
+  }
+ ],
+ "paceTables": [
+  {
+   "paceSecPerMile": 480,
+   "shade": [
+    [
+     -4,
+     -4,
+     -4,
+     -4,
+     -4,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -4,
+     -4,
+     -4,
+     -3,
+     -1,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -4,
+     -4,
+     -3,
+     -1,
+     0,
+     2,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -4,
+     -3,
+     -1,
+     0,
+     2,
+     5,
+     8,
+     null,
+     null
+    ],
+    [
+     -4,
+     -3,
+     -1,
+     0,
+     2,
+     5,
+     8,
+     11,
+     14,
+     null
+    ],
+    [
+     -3,
+     -1,
+     0,
+     2,
+     5,
+     8,
+     11,
+     14,
+     19,
+     23
+    ],
+    [
+     -1,
+     0,
+     2,
+     5,
+     8,
+     11,
+     14,
+     19,
+     23,
+     27
+    ],
+    [
+     0,
+     2,
+     5,
+     8,
+     11,
+     14,
+     19,
+     23,
+     27,
+     32
+    ],
+    [
+     2,
+     5,
+     8,
+     11,
+     14,
+     19,
+     23,
+     27,
+     32,
+     38
+    ],
+    [
+     5,
+     8,
+     11,
+     14,
+     19,
+     23,
+     27,
+     32,
+     38,
+     43
+    ]
+   ],
+   "sun": [
+    [
+     -4,
+     -4,
+     -4,
+     -4,
+     -3,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -4,
+     -4,
+     -3,
+     -2,
+     -1,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -4,
+     -3,
+     -2,
+     -1,
+     1,
+     3,
+     null,
+     null,
+     null
+    ],
+    [
+     -4,
+     -3,
+     -2,
+     -1,
+     1,
+     3,
+     7,
+     10,
+     null,
+     null
+    ],
+    [
+     -3,
+     -2,
+     -1,
+     1,
+     3,
+     7,
+     10,
+     13,
+     16,
+     null
+    ],
+    [
+     -2,
+     -1,
+     1,
+     3,
+     7,
+     10,
+     13,
+     16,
+     21,
+     25
+    ],
+    [
+     -1,
+     1,
+     3,
+     7,
+     10,
+     13,
+     16,
+     21,
+     25,
+     30
+    ],
+    [
+     1,
+     3,
+     7,
+     10,
+     13,
+     16,
+     21,
+     25,
+     30,
+     35
+    ],
+    [
+     3,
+     7,
+     10,
+     13,
+     16,
+     21,
+     25,
+     30,
+     35,
+     41
+    ],
+    [
+     7,
+     10,
+     13,
+     16,
+     21,
+     25,
+     30,
+     35,
+     41,
+     49
+    ]
+   ]
+  },
+  {
+   "paceSecPerMile": 600,
+   "shade": [
+    [
+     -7,
+     -7,
+     -7,
+     -7,
+     -7,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -7,
+     -7,
+     -7,
+     -5,
+     -3,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -7,
+     -7,
+     -5,
+     -3,
+     0,
+     3,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -7,
+     -5,
+     -3,
+     0,
+     3,
+     9,
+     14,
+     null,
+     null
+    ],
+    [
+     -7,
+     -5,
+     -3,
+     0,
+     3,
+     9,
+     14,
+     19,
+     24,
+     null
+    ],
+    [
+     -5,
+     -3,
+     0,
+     3,
+     9,
+     14,
+     19,
+     24,
+     32,
+     40
+    ],
+    [
+     -3,
+     0,
+     3,
+     9,
+     14,
+     19,
+     24,
+     32,
+     40,
+     47
+    ],
+    [
+     0,
+     3,
+     9,
+     14,
+     19,
+     24,
+     32,
+     40,
+     47,
+     55
+    ],
+    [
+     3,
+     9,
+     14,
+     19,
+     24,
+     32,
+     40,
+     47,
+     55,
+     65
+    ],
+    [
+     9,
+     14,
+     19,
+     24,
+     32,
+     40,
+     47,
+     55,
+     65,
+     74
+    ]
+   ],
+   "sun": [
+    [
+     -7,
+     -7,
+     -7,
+     -7,
+     -6,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -7,
+     -7,
+     -6,
+     -4,
+     -1,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -7,
+     -6,
+     -4,
+     -1,
+     2,
+     6,
+     null,
+     null,
+     null
+    ],
+    [
+     -7,
+     -6,
+     -4,
+     -1,
+     2,
+     6,
+     11,
+     17,
+     null,
+     null
+    ],
+    [
+     -6,
+     -4,
+     -1,
+     2,
+     6,
+     11,
+     17,
+     22,
+     28,
+     null
+    ],
+    [
+     -4,
+     -1,
+     2,
+     6,
+     11,
+     17,
+     22,
+     28,
+     36,
+     44
+    ],
+    [
+     -1,
+     2,
+     6,
+     11,
+     17,
+     22,
+     28,
+     36,
+     44,
+     51
+    ],
+    [
+     2,
+     6,
+     11,
+     17,
+     22,
+     28,
+     36,
+     44,
+     51,
+     60
+    ],
+    [
+     6,
+     11,
+     17,
+     22,
+     28,
+     36,
+     44,
+     51,
+     60,
+     70
+    ],
+    [
+     11,
+     17,
+     22,
+     28,
+     36,
+     44,
+     51,
+     60,
+     70,
+     84
+    ]
+   ]
+  },
+  {
+   "paceSecPerMile": 720,
+   "shade": [
+    [
+     -12,
+     -12,
+     -12,
+     -12,
+     -12,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -12,
+     -12,
+     -12,
+     -8,
+     -5,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -12,
+     -12,
+     -8,
+     -5,
+     0,
+     5,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -12,
+     -8,
+     -5,
+     0,
+     5,
+     13,
+     21,
+     null,
+     null
+    ],
+    [
+     -12,
+     -8,
+     -5,
+     0,
+     5,
+     13,
+     21,
+     30,
+     38,
+     null
+    ],
+    [
+     -8,
+     -5,
+     0,
+     5,
+     13,
+     21,
+     30,
+     38,
+     49,
+     61
+    ],
+    [
+     -5,
+     0,
+     5,
+     13,
+     21,
+     30,
+     38,
+     49,
+     61,
+     73
+    ],
+    [
+     0,
+     5,
+     13,
+     21,
+     30,
+     38,
+     49,
+     61,
+     73,
+     84
+    ],
+    [
+     5,
+     13,
+     21,
+     30,
+     38,
+     49,
+     61,
+     73,
+     84,
+     99
+    ],
+    [
+     13,
+     21,
+     30,
+     38,
+     49,
+     61,
+     73,
+     84,
+     99,
+     113
+    ]
+   ],
+   "sun": [
+    [
+     -12,
+     -12,
+     -12,
+     -12,
+     -10,
+     null,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -12,
+     -12,
+     -10,
+     -6,
+     -2,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -12,
+     -10,
+     -6,
+     -2,
+     3,
+     9,
+     null,
+     null,
+     null
+    ],
+    [
+     -12,
+     -10,
+     -6,
+     -2,
+     3,
+     9,
+     17,
+     26,
+     null,
+     null
+    ],
+    [
+     -10,
+     -6,
+     -2,
+     3,
+     9,
+     17,
+     26,
+     34,
+     44,
+     null
+    ],
+    [
+     -6,
+     -2,
+     3,
+     9,
+     17,
+     26,
+     34,
+     44,
+     56,
+     67
+    ],
+    [
+     -2,
+     3,
+     9,
+     17,
+     26,
+     34,
+     44,
+     56,
+     67,
+     79
+    ],
+    [
+     3,
+     9,
+     17,
+     26,
+     34,
+     44,
+     56,
+     67,
+     79,
+     92
+    ],
+    [
+     9,
+     17,
+     26,
+     34,
+     44,
+     56,
+     67,
+     79,
+     92,
+     107
+    ],
+    [
+     17,
+     26,
+     34,
+     44,
+     56,
+     67,
+     79,
+     92,
+     107,
+     127
+    ]
+   ]
+  }
+ ],
+ "examples": {
+  "ordinary_60_45_shade": -5,
+  "cool_50_35_shade": -7,
+  "humid_75_70_shade": 32,
+  "humid_75_70_sun": 36,
+  "hot_85_70_sun": 51,
+  "hot_90_75_sun": 70,
+  "fast_vs_slow_80_65_shade": {
+   "8:00": 19,
+   "10:00": 32,
+   "12:00": 49
+  }
+ },
+ "wear": [
+  {
+   "tempF": 10,
+   "items": [
+    {
+     "label": "Base + mid + windproof shell",
+     "why": "Three layers, nothing cotton"
+    },
+    {
+     "label": "Thermal tights + wind briefs",
+     "why": "Bitter cold"
+    },
+    {
+     "label": "Insulated gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Buff or neck gaiter",
+     "why": "Warms the air you breathe"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 20,
+   "items": [
+    {
+     "label": "Thermal top + wind jacket",
+     "why": "Two layers, outer one windproof"
+    },
+    {
+     "label": "Thermal tights",
+     "why": "Below freezing"
+    },
+    {
+     "label": "Insulated gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Buff or neck gaiter",
+     "why": "Warms the air you breathe"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 30,
+   "items": [
+    {
+     "label": "Long sleeve + light vest",
+     "why": "Core warm, arms free to dump heat"
+    },
+    {
+     "label": "Tights",
+     "why": "Cold enough for covered legs"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 35,
+   "items": [
+    {
+     "label": "Long sleeve + light vest",
+     "why": "Core warm, arms free to dump heat"
+    },
+    {
+     "label": "Tights",
+     "why": "Cold enough for covered legs"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Headband over ears",
+     "why": "Ears feel the cold before the rest of you"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 40,
+   "items": [
+    {
+     "label": "Long sleeve, light",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts or capris",
+     "why": "Cool enough that either works"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Headband over ears",
+     "why": "Ears feel the cold before the rest of you"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 45,
+   "items": [
+    {
+     "label": "Short sleeve + arm warmers",
+     "why": "Shed the sleeves once you are warm"
+    },
+    {
+     "label": "Shorts",
+     "why": "Legs warm up fast"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 50,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 55,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 60,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 65,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 70,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 75,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 80,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 85,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 90,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  }
+ ],
+ "wbgt": [
+  {
+   "tempF": 70,
+   "dewpointF": 60,
+   "solarWm2": 0,
+   "wbgtF": 65,
+   "flag": "Yellow"
+  },
+  {
+   "tempF": 75,
+   "dewpointF": 65,
+   "solarWm2": 300,
+   "wbgtF": 71,
+   "flag": "Yellow"
+  },
+  {
+   "tempF": 80,
+   "dewpointF": 70,
+   "solarWm2": 600,
+   "wbgtF": 77,
+   "flag": "Red"
+  },
+  {
+   "tempF": 85,
+   "dewpointF": 70,
+   "solarWm2": 800,
+   "wbgtF": 80,
+   "flag": "Red"
+  },
+  {
+   "tempF": 90,
+   "dewpointF": 75,
+   "solarWm2": 900,
+   "wbgtF": 86,
+   "flag": "Black"
+  }
+ ]
+}
