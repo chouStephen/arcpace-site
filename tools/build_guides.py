@@ -141,7 +141,7 @@ def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line
 <p class="meta">Updated {UPDATED} · {meta_line}</p>
 {body}
 {faq_html}
-<div class="cta"><p><strong>ArcPace</strong> does this for every hour of your forecast: a run score out of 100, the pace cost at your own easy pace, and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
+<div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
 <footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>
 </body>
@@ -192,9 +192,8 @@ a sum of 140 adds about <strong>{s140} seconds per mile</strong>, 150 adds about
 Slower runners lose more: on an 80°F morning with a 65°F dew point, about {fs['8:00']} s/mi at 8:00 pace,
 {fs['10:00']} s/mi at 10:00 and {fs['12:00']} s/mi at 12:00.</p></div>
 
-<p class="lede">Heat slows running because your body has to spend effort shedding heat, and humid air makes that harder:
-sweat only cools you when it evaporates. The dew point measures how much water is actually in the air, so it says more
-about how a run will feel than the temperature or relative humidity alone.</p>
+<p class="lede">Sweat cools you only when it evaporates, and humid air slows that. Dew point measures the water in the air directly,
+so it predicts a run better than temperature or relative humidity.</p>
 
 <h2>Pace cost by temperature + dew point</h2>
 {sum_table("shade", "Seconds per mile added (or saved) against an ordinary 60°F day, in shade: overcast, early morning or evening. 5 mph wind, sea level.")}
@@ -212,10 +211,9 @@ The split between temperature and dew point doesn't matter in this model; only t
 {grid_table()}
 
 <h2>Why slower runners lose more</h2>
-<p>The classic temperature-plus-dew-point charts were built from competitive race results. Studies of marathon finishers
-(Ely and colleagues, 2007) found the slowdown from heat grows down the field: the leaders lost under 1% per 5°C of WBGT,
-while runners further back lost over 3%. A slower runner is out in the heat longer, and makes less of their own cooling airflow.
-ArcPace scales the heat cost by your own easy pace, from 0.8× for fast runners up to 2.2× at about 13:40/mile.</p>
+<p>Temperature-plus-dew-point charts come from competitive race results. But in marathon data (Ely and colleagues, 2007),
+leaders lost under 1% per 5°C of WBGT while runners further back lost over 3%: slower runners spend longer in the heat and make less cooling airflow.
+ArcPace scales the heat cost to your easy pace, from 0.8× for fast runners to 2.2× at about 13:40/mile.</p>
 
 <h2>How these numbers are made</h2>
 <ul>
@@ -281,8 +279,7 @@ You should feel slightly cold at the door.</p></div>
 <li><strong>You.</strong> Some runners run hot, some cold. ArcPace lets you set your cold and heat tolerance, and shifts the kit to match.</li>
 <li><strong>Long runs</strong> start cold and finish warm. Pick layers you can take off and carry.</li>
 </ul>
-<p>This is the same rule ArcPace uses for every hour of the forecast: it dresses you for how the run will feel at mile two,
-using the feels-like temperature, wind, rain and sun of the hour you plan to go out.</p>
+<p>ArcPace applies this to every forecast hour, dressing you for mile two from the feels-like temperature, wind, rain and sun.</p>
 """
 wear_faq = [
     ("What should I wear running in 40 degrees?",
@@ -312,9 +309,8 @@ wbgt_body = f"""
 It combines air temperature, humidity, sun and wind. Races fly a flag by it: <strong>Green</strong> below 64°F WBGT,
 <strong>Yellow</strong> 64–73°F, <strong>Red</strong> 73–82°F and <strong>Black</strong> at 82°F and up, when races are usually cancelled.</p></div>
 
-<p class="lede">The thermometer reading says little about heat risk on its own. A 75°F morning in shade with dry air is pleasant;
-75°F in full sun with a 70°F dew point is dangerous. WBGT weighs the things that actually limit how your body sheds heat:
-humidity most of all (through the wet bulb), then sun (through the black globe), then the air.</p>
+<p class="lede">75°F in dry shade is pleasant; 75°F in full sun with a 70°F dew point is dangerous. WBGT captures the difference:
+it weighs humidity most, then sun, then air temperature.</p>
 
 <h2>The race heat flags</h2>
 <div class='scroll'><table><caption>WBGT flag ranges as used at races (after the American College of Sports Medicine guidance).</caption>
