@@ -14,6 +14,7 @@
 <meta property="og:image" content="https://arcpace.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
+<meta name="apple-itunes-app" content="app-id=6815307156, app-argument=https://arcpace.app/guides/wbgt-running-heat-flags/">
 <style>
   :root { --bg:#FBFBFD; --ink:#1B1F2A; --dim:#5A6070; --faint:#8A90A0; --rule:#E6E8EE; --accent:#0E8A5C; --cell:#F1F3F7; }
   @media (prefers-color-scheme: dark) {
@@ -42,6 +43,10 @@
   td.wrap, th.wrap { white-space:normal; text-align:left; }
   thead th { color:var(--faint); font-weight:600; font-size:13px; }
   .note { color:var(--faint); font-size:13px; }
+  h2 .anchor { color:var(--faint); font-weight:400; opacity:0; text-decoration:none; }
+  h2:hover .anchor, h2 .anchor:focus { opacity:1; }
+  @media (hover:none) { h2 .anchor { display:none; } }
+  .related li { margin-bottom:8px; }
   @media (max-width:430px) { table { font-size:14px; } th, td { padding:7px 5px; } thead th { font-size:12px; } }
   details { border-bottom:1px solid var(--rule); padding:12px 0; }
   summary { cursor:pointer; color:var(--ink); font-weight:600; }
@@ -67,27 +72,28 @@ It combines air temperature, humidity, sun and wind. Races fly a flag by it: <st
 <p class="lede">75°F in dry shade is pleasant; 75°F in full sun with a 70°F dew point is dangerous. WBGT captures the difference:
 it weighs humidity most, then sun, then air temperature.</p>
 
-<h2>The race heat flags</h2>
+<h2 id="the-race-heat-flags">The race heat flags <a class="anchor" href="#the-race-heat-flags" aria-label="Link to this section">#</a></h2>
 <div class='scroll'><table><caption>WBGT flag ranges as used at races (after the American College of Sports Medicine guidance).</caption>
 <thead><tr><th>Flag</th><th>WBGT °F</th><th>WBGT °C</th><th class='wrap'>What it means</th></tr></thead><tbody><tr><td><strong>Black</strong></td><td>82°F and up</td><td>28°C and up</td><td class='wrap'>Extreme risk. Races are typically cancelled. Don&#x27;t race or do hard training.</td></tr><tr><td><strong>Red</strong></td><td>73–82°F</td><td>23–28°C</td><td class='wrap'>High risk. Slow down a lot, drink, and consider not racing if you&#x27;re not adapted to heat.</td></tr><tr><td><strong>Yellow</strong></td><td>64–73°F</td><td>18–23°C</td><td class='wrap'>Moderate risk. Slow down, drink, and watch for heat illness.</td></tr><tr><td><strong>Green</strong></td><td>50–64°F</td><td>10–18°C</td><td class='wrap'>Low risk of heat illness. Normal running.</td></tr><tr><td><strong>White</strong></td><td>below 50°F</td><td>below 10°C</td><td class='wrap'>Low heat risk. The risk now is cold: hypothermia in wet, windy conditions.</td></tr></tbody></table></div>
 
-<h2>Examples</h2>
+<h2 id="examples">Examples <a class="anchor" href="#examples" aria-label="Link to this section">#</a></h2>
 <div class='scroll'><table><caption>WBGT estimated by the ArcPace model, 5 mph wind.</caption>
 <thead><tr><th>Air</th><th>Dew point</th><th>Sun</th><th>WBGT</th><th>Flag</th></tr></thead><tbody><tr><td>70°F</td><td>60°F</td><td>shade</td><td>65°F</td><td>Yellow</td></tr><tr><td>75°F</td><td>65°F</td><td>300 W/m²</td><td>71°F</td><td>Yellow</td></tr><tr><td>80°F</td><td>70°F</td><td>600 W/m²</td><td>77°F</td><td>Red</td></tr><tr><td>85°F</td><td>70°F</td><td>800 W/m²</td><td>80°F</td><td>Red</td></tr><tr><td>90°F</td><td>75°F</td><td>900 W/m²</td><td>86°F</td><td>Black</td></tr></tbody></table></div>
 <p>WBGT is usually lower than the air temperature, so a WBGT of 80°F is a very hot day, not a warm one.</p>
 
-<h2>How ArcPace uses it</h2>
+<h2 id="how-arcpace-uses-it">How ArcPace uses it <a class="anchor" href="#how-arcpace-uses-it" aria-label="Link to this section">#</a></h2>
 <p>ArcPace estimates WBGT for every hour of the forecast from temperature, dew point, solar radiation and wind, and shows the flag
 beside the run score, described in plain words. The flag is shown, not scored: the run score already counts heat and humidity,
 and the flag is there for race-day decisions.</p>
 <p class="note">Estimates from forecast data, not a measured reading. On race day, follow the organizer's official flag.
-Not medical advice.</p>
+Not medical advice. Know the <a href="/guides/heat-illness-warning-signs/">heat illness warning signs</a>.</p>
 
-<h2>Questions</h2>
+<h2 id="questions">Questions <a class="anchor" href="#questions" aria-label="Link to this section">#</a></h2>
 <details><summary>What is WBGT in running?</summary><p>Wet bulb globe temperature: a heat-stress measure that combines air temperature, humidity, sun and wind. Races use it to set heat flags.</p></details>
 <details><summary>What WBGT is too hot to run?</summary><p>At a WBGT of 82°F (28°C) or more, the Black flag, races are typically cancelled. 73–82°F (Red) is high risk: slow down a lot and consider not racing.</p></details>
 <details><summary>Is WBGT the same as the heat index?</summary><p>No. The heat index combines temperature and humidity for a person in shade. WBGT also counts sun and wind, which is why it&#x27;s used for exercise and races.</p></details>
 <details><summary>Why is WBGT lower than the temperature?</summary><p>WBGT weights the wet bulb reading, which is cooled by evaporation, most heavily. So its numbers run lower than the air temperature, and the flag thresholds are set to match.</p></details>
+<h2>Related guides</h2><ul class='related'><li><a href='/guides/heat-illness-warning-signs/'>Heat illness warning signs: when to stop</a><br><span class='note'>Cramps, exhaustion and heat stroke, and what to do for each.</span></li><li><a href='/guides/running-in-the-heat/'>How to run in the heat and stay cool</a><br><span class='note'>Timing, pacing, cooling, drinking and two weeks to adapt.</span></li><li><a href='/guides/running-pace-heat-humidity/'>How much do heat and humidity slow your running pace?</a><br><span class='note'>Temperature + dew point tables for 8:00, 10:00 and 12:00 easy paces, in shade and sun.</span></li></ul>
 <div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
 <footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>

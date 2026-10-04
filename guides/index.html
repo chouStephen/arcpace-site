@@ -14,6 +14,7 @@
 <meta property="og:image" content="https://arcpace.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
+<meta name="apple-itunes-app" content="app-id=6815307156, app-argument=https://arcpace.app/guides/">
 <style>
   :root { --bg:#FBFBFD; --ink:#1B1F2A; --dim:#5A6070; --faint:#8A90A0; --rule:#E6E8EE; --accent:#0E8A5C; --cell:#F1F3F7; }
   @media (prefers-color-scheme: dark) {
@@ -42,6 +43,10 @@
   td.wrap, th.wrap { white-space:normal; text-align:left; }
   thead th { color:var(--faint); font-weight:600; font-size:13px; }
   .note { color:var(--faint); font-size:13px; }
+  h2 .anchor { color:var(--faint); font-weight:400; opacity:0; text-decoration:none; }
+  h2:hover .anchor, h2 .anchor:focus { opacity:1; }
+  @media (hover:none) { h2 .anchor { display:none; } }
+  .related li { margin-bottom:8px; }
   @media (max-width:430px) { table { font-size:14px; } th, td { padding:7px 5px; } thead th { font-size:12px; } }
   details { border-bottom:1px solid var(--rule); padding:12px 0; }
   summary { cursor:pointer; color:var(--ink); font-weight:600; }
@@ -58,7 +63,8 @@
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">ArcPace</a><a href="/guides/">Guides</a></nav>
 <h1>Running weather guides</h1>
 <p class="meta">Updated 2026-10-04 · Figures from the ArcPace weather model</p>
-<p class='lede'>How the weather changes a run: practical guides, and reference tables with numbers from the model behind ArcPace.</p><h2>Running in the weather</h2><ul><li><a href='/guides/running-in-the-heat/'><strong>How to run in the heat and stay cool</strong></a><br>Timing, pacing, cooling, drinking and two weeks to adapt.</li><li><a href='/guides/heat-illness-warning-signs/'><strong>Heat illness warning signs: when to stop</strong></a><br>Cramps, exhaustion and heat stroke, and what to do for each.</li><li><a href='/guides/running-in-the-cold/'><strong>Running in the cold: what to watch for</strong></a><br>Layers, wind, ice, darkness, frostbite and hypothermia.</li><li><a href='/guides/rain-wind-storms-air-quality/'><strong>Running in rain, wind, thunderstorms and smoke</strong></a><br>When to go anyway, when to go inside, and how to set up for each.</li></ul><h2>Reference tables</h2><ul><li><a href='/guides/running-pace-heat-humidity/'><strong>How much do heat and humidity slow your running pace?</strong></a><br>Temperature + dew point tables for 8:00, 10:00 and 12:00 easy paces, in shade and sun.</li><li><a href='/guides/what-to-wear-running-by-temperature/'><strong>What to wear running, by temperature</strong></a><br>From 10°F to 90°F, and how wind, rain and sun change it.</li><li><a href='/guides/wbgt-running-heat-flags/'><strong>WBGT and race heat flags, explained</strong></a><br>What wet bulb globe temperature measures, and what each race flag means.</li></ul>
+<p class='lede'>How the weather changes a run: practical guides, and reference tables with numbers from the model behind ArcPace.</p><h2 id="running-in-the-weather">Running in the weather <a class="anchor" href="#running-in-the-weather" aria-label="Link to this section">#</a></h2><ul><li><a href='/guides/running-in-the-heat/'><strong>How to run in the heat and stay cool</strong></a><br>Timing, pacing, cooling, drinking and two weeks to adapt.</li><li><a href='/guides/heat-illness-warning-signs/'><strong>Heat illness warning signs: when to stop</strong></a><br>Cramps, exhaustion and heat stroke, and what to do for each.</li><li><a href='/guides/running-in-the-cold/'><strong>Running in the cold: what to watch for</strong></a><br>Layers, wind, ice, darkness, frostbite and hypothermia.</li><li><a href='/guides/rain-wind-storms-air-quality/'><strong>Running in rain, wind, thunderstorms and smoke</strong></a><br>When to go anyway, when to go inside, and how to set up for each.</li></ul><h2 id="reference-tables">Reference tables <a class="anchor" href="#reference-tables" aria-label="Link to this section">#</a></h2><ul><li><a href='/guides/running-pace-heat-humidity/'><strong>How much do heat and humidity slow your running pace?</strong></a><br>Temperature + dew point tables for 8:00, 10:00 and 12:00 easy paces, in shade and sun.</li><li><a href='/guides/what-to-wear-running-by-temperature/'><strong>What to wear running, by temperature</strong></a><br>From 10°F to 90°F, and how wind, rain and sun change it.</li><li><a href='/guides/wbgt-running-heat-flags/'><strong>WBGT and race heat flags, explained</strong></a><br>What wet bulb globe temperature measures, and what each race flag means.</li></ul>
+
 
 <div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
 <footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>

@@ -14,6 +14,7 @@
 <meta property="og:image" content="https://arcpace.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
+<meta name="apple-itunes-app" content="app-id=6815307156, app-argument=https://arcpace.app/guides/running-pace-heat-humidity/">
 <style>
   :root { --bg:#FBFBFD; --ink:#1B1F2A; --dim:#5A6070; --faint:#8A90A0; --rule:#E6E8EE; --accent:#0E8A5C; --cell:#F1F3F7; }
   @media (prefers-color-scheme: dark) {
@@ -42,6 +43,10 @@
   td.wrap, th.wrap { white-space:normal; text-align:left; }
   thead th { color:var(--faint); font-weight:600; font-size:13px; }
   .note { color:var(--faint); font-size:13px; }
+  h2 .anchor { color:var(--faint); font-weight:400; opacity:0; text-decoration:none; }
+  h2:hover .anchor, h2 .anchor:focus { opacity:1; }
+  @media (hover:none) { h2 .anchor { display:none; } }
+  .related li { margin-bottom:8px; }
   @media (max-width:430px) { table { font-size:14px; } th, td { padding:7px 5px; } thead th { font-size:12px; } }
   details { border-bottom:1px solid var(--rule); padding:12px 0; }
   summary { cursor:pointer; color:var(--ink); font-weight:600; }
@@ -69,27 +74,27 @@ Slower runners lose more: on an 80°F morning with a 65°F dew point, about 19 s
 <p class="lede">Sweat cools you only when it evaporates, and humid air slows that. Dew point measures the water in the air directly,
 so it predicts a run better than temperature or relative humidity.</p>
 
-<h2>Pace cost by temperature + dew point</h2>
+<h2 id="pace-cost-by-temperature-dew-point">Pace cost by temperature + dew point <a class="anchor" href="#pace-cost-by-temperature-dew-point" aria-label="Link to this section">#</a></h2>
 <div class='scroll'><table><caption>Seconds per mile added (or saved) against an ordinary 60°F day, in shade: overcast, early morning or evening. 5 mph wind, sea level. Column heads are easy pace per mile.</caption><thead><tr><th>Temp + dew point</th><th>8:00 pace</th><th>10:00 pace</th><th>12:00 pace</th></tr></thead><tbody><tr><td><strong>100</strong><br><span class='note'>e.g. 56° / dp 44°F</span></td><td>−4</td><td>−7</td><td>−12</td></tr><tr><td><strong>110</strong><br><span class='note'>e.g. 61° / dp 49°F</span></td><td>−1</td><td>−3</td><td>−5</td></tr><tr><td><strong>120</strong><br><span class='note'>e.g. 66° / dp 54°F</span></td><td>+2</td><td>+3</td><td>+5</td></tr><tr><td><strong>130</strong><br><span class='note'>e.g. 71° / dp 59°F</span></td><td>+8</td><td>+14</td><td>+21</td></tr><tr><td><strong>140</strong><br><span class='note'>e.g. 76° / dp 64°F</span></td><td>+14</td><td>+24</td><td>+38</td></tr><tr><td><strong>150</strong><br><span class='note'>e.g. 81° / dp 69°F</span></td><td>+23</td><td>+40</td><td>+61</td></tr><tr><td><strong>160</strong><br><span class='note'>e.g. 86° / dp 74°F</span></td><td>+32</td><td>+55</td><td>+84</td></tr><tr><td><strong>170</strong><br><span class='note'>e.g. 91° / dp 79°F</span></td><td>+43</td><td>+74</td><td>+113</td></tr></tbody></table></div>
 <p class="note">A negative number is a gain: cool, dry air lets you run the same effort a little faster.
 The split between temperature and dew point doesn't matter in this model; only their sum does.</p>
 
-<h2>In full sun</h2>
+<h2 id="in-full-sun">In full sun <a class="anchor" href="#in-full-sun" aria-label="Link to this section">#</a></h2>
 <p>Direct sun adds a radiant load on top of the air temperature. In full midday sun (about 800 W/m²) the cost is higher:</p>
 <div class='scroll'><table><caption>Seconds per mile, full midday sun, 5 mph wind, sea level. Column heads are easy pace per mile.</caption><thead><tr><th>Temp + dew point</th><th>8:00 pace</th><th>10:00 pace</th><th>12:00 pace</th></tr></thead><tbody><tr><td><strong>100</strong><br><span class='note'>e.g. 56° / dp 44°F</span></td><td>−3</td><td>−6</td><td>−10</td></tr><tr><td><strong>110</strong><br><span class='note'>e.g. 61° / dp 49°F</span></td><td>−1</td><td>−1</td><td>−2</td></tr><tr><td><strong>120</strong><br><span class='note'>e.g. 66° / dp 54°F</span></td><td>+3</td><td>+6</td><td>+9</td></tr><tr><td><strong>130</strong><br><span class='note'>e.g. 71° / dp 59°F</span></td><td>+10</td><td>+17</td><td>+26</td></tr><tr><td><strong>140</strong><br><span class='note'>e.g. 76° / dp 64°F</span></td><td>+16</td><td>+28</td><td>+44</td></tr><tr><td><strong>150</strong><br><span class='note'>e.g. 81° / dp 69°F</span></td><td>+25</td><td>+44</td><td>+67</td></tr><tr><td><strong>160</strong><br><span class='note'>e.g. 86° / dp 74°F</span></td><td>+35</td><td>+60</td><td>+92</td></tr><tr><td><strong>170</strong><br><span class='note'>e.g. 91° / dp 79°F</span></td><td>+49</td><td>+84</td><td>+127</td></tr></tbody></table></div>
 <p>At a 10:00/mile easy pace, 75°F with a 70°F dew point costs about 32 s/mi in shade and
 36 s/mi in sun. 85°F with a 70°F dew point in sun costs about 51 s/mi;
 90°F with a 75°F dew point, about 70 s/mi.</p>
 
-<h2>The full grid, 10:00/mile</h2>
+<h2 id="the-full-grid-10-00-mile">The full grid, 10:00/mile <a class="anchor" href="#the-full-grid-10-00-mile" aria-label="Link to this section">#</a></h2>
 <div class='scroll'><table><caption>Seconds per mile added at a 10:00/mile easy pace, in shade. Rows: air temperature. Columns: dew point.</caption><thead><tr><th>Temp \ dew point</th><th>30°</th><th>35°</th><th>40°</th><th>45°</th><th>50°</th><th>55°</th><th>60°</th><th>65°</th><th>70°</th><th>75°</th></tr></thead><tbody><tr><td><strong>50°F</strong></td><td>−7</td><td>−7</td><td>−7</td><td>−7</td><td>−7</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>55°F</strong></td><td>−7</td><td>−7</td><td>−7</td><td>−7</td><td>−5</td><td>−3</td><td></td><td></td><td></td><td></td></tr><tr><td><strong>60°F</strong></td><td>−7</td><td>−7</td><td>−7</td><td>−5</td><td>−3</td><td>0</td><td>+3</td><td></td><td></td><td></td></tr><tr><td><strong>65°F</strong></td><td>−7</td><td>−7</td><td>−5</td><td>−3</td><td>0</td><td>+3</td><td>+9</td><td>+14</td><td></td><td></td></tr><tr><td><strong>70°F</strong></td><td>−7</td><td>−5</td><td>−3</td><td>0</td><td>+3</td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td></td></tr><tr><td><strong>75°F</strong></td><td>−5</td><td>−3</td><td>0</td><td>+3</td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td>+32</td><td>+40</td></tr><tr><td><strong>80°F</strong></td><td>−3</td><td>0</td><td>+3</td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td>+32</td><td>+40</td><td>+47</td></tr><tr><td><strong>85°F</strong></td><td>0</td><td>+3</td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td>+32</td><td>+40</td><td>+47</td><td>+55</td></tr><tr><td><strong>90°F</strong></td><td>+3</td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td>+32</td><td>+40</td><td>+47</td><td>+55</td><td>+65</td></tr><tr><td><strong>95°F</strong></td><td>+9</td><td>+14</td><td>+19</td><td>+24</td><td>+32</td><td>+40</td><td>+47</td><td>+55</td><td>+65</td><td>+74</td></tr></tbody></table></div>
 
-<h2>Why slower runners lose more</h2>
+<h2 id="why-slower-runners-lose-more">Why slower runners lose more <a class="anchor" href="#why-slower-runners-lose-more" aria-label="Link to this section">#</a></h2>
 <p>Temperature-plus-dew-point charts come from competitive race results. But in marathon data (Ely and colleagues, 2007),
 leaders lost under 1% per 5°C of WBGT while runners further back lost over 3%: slower runners spend longer in the heat and make less cooling airflow.
 ArcPace scales the heat cost to your easy pace, from 0.8× for fast runners to 2.2× at about 13:40/mile.</p>
 
-<h2>How these numbers are made</h2>
+<h2 id="how-these-numbers-are-made">How these numbers are made <a class="anchor" href="#how-these-numbers-are-made" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>Pace cost is a percentage of your easy pace, from a temperature + dew point table, measured against an ordinary day (a sum of 120, about 60°F with a 60°F dew point, or a little warmer with drier air).</li>
 <li>In sun, a radiant term is added from solar radiation, the same one used for WBGT.</li>
@@ -98,14 +103,15 @@ ArcPace scales the heat cost to your easy pace, from 0.8× for fast runners to 2
 <li>Wind, rain, snow and altitude add their own costs in the app; these tables hold them at 5 mph, dry and sea level.</li>
 </ul>
 <p class="note">These are estimates for planning easy runs, not medical advice. In real heat, slow down by feel, drink, and stop if you feel unwell.
-For race-day risk, see <a href="/guides/wbgt-running-heat-flags/">WBGT and heat flags</a>.</p>
+For race-day risk, see <a href="/guides/wbgt-running-heat-flags/">WBGT and heat flags</a>; for when to stop, <a href="/guides/heat-illness-warning-signs/">heat illness warning signs</a>; for how to stay cool, <a href="/guides/running-in-the-heat/">how to run in the heat</a>.</p>
 
-<h2>Questions</h2>
+<h2 id="questions">Questions <a class="anchor" href="#questions" aria-label="Link to this section">#</a></h2>
 <details><summary>How much slower should I run in heat and humidity?</summary><p>Add the temperature and dew point in °F. Below about 120 there&#x27;s no cost, and at 120 only a few seconds. At a 10:00/mile easy pace, 140 adds about 24 seconds per mile, 150 about 40 and 160 about 55. Slower paces lose more.</p></details>
 <details><summary>Is dew point or humidity better for running?</summary><p>Dew point. Relative humidity depends on the temperature, so 90% at dawn can be comfortable and 50% in the afternoon miserable. Dew point measures the water in the air directly: under about 55°F feels fine, 60–65°F is noticeable, and 70°F or more is oppressive.</p></details>
 <details><summary>How much does 80 degrees slow running?</summary><p>It depends on the dew point and your pace. At 80°F with a 65°F dew point, in shade, about 19 s/mi at 8:00 pace, 32 s/mi at 10:00 and 49 s/mi at 12:00.</p></details>
 <details><summary>Does running in the sun make a difference?</summary><p>Yes. Full sun adds a radiant load. At a 10:00/mile pace, 75°F with a 70°F dew point costs about 32 s/mi in shade and 36 s/mi in sun.</p></details>
 <details><summary>Do you run faster in cool weather?</summary><p>A little. Against an ordinary 60°F day, a cool, dry morning (50°F, dew point 35°F) is worth about 7 seconds per mile faster at a 10:00 easy pace.</p></details>
+<h2>Related guides</h2><ul class='related'><li><a href='/guides/running-in-the-heat/'>How to run in the heat and stay cool</a><br><span class='note'>Timing, pacing, cooling, drinking and two weeks to adapt.</span></li><li><a href='/guides/wbgt-running-heat-flags/'>WBGT and race heat flags, explained</a><br><span class='note'>What wet bulb globe temperature measures, and what each race flag means.</span></li><li><a href='/guides/heat-illness-warning-signs/'>Heat illness warning signs: when to stop</a><br><span class='note'>Cramps, exhaustion and heat stroke, and what to do for each.</span></li></ul>
 <div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
 <footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>

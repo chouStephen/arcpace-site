@@ -13,10 +13,16 @@ sitemap.xml, since the guide list lives here.
 import html
 import json
 import pathlib
+import re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://arcpace.app"
 UPDATED = "2026-10-04"
+# Flip with the home page's APP_LIVE once Apple approves the app: guide
+# calls to action then go straight to the App Store.
+APP_LIVE = False
+APP_STORE_ID = "6815307156"
+APP_STORE_URL = f"https://apps.apple.com/app/id{APP_STORE_ID}"
 D = json.loads((ROOT / "guides/data.json").read_text())
 
 esc = html.escape
@@ -60,6 +66,10 @@ STYLE = """
   td.wrap, th.wrap { white-space:normal; text-align:left; }
   thead th { color:var(--faint); font-weight:600; font-size:13px; }
   .note { color:var(--faint); font-size:13px; }
+  h2 .anchor { color:var(--faint); font-weight:400; opacity:0; text-decoration:none; }
+  h2:hover .anchor, h2 .anchor:focus { opacity:1; }
+  @media (hover:none) { h2 .anchor { display:none; } }
+  .related li { margin-bottom:8px; }
   @media (max-width:430px) { table { font-size:14px; } th, td { padding:7px 5px; } thead th { font-size:12px; } }
   details { border-bottom:1px solid var(--rule); padding:12px 0; }
   summary { cursor:pointer; color:var(--ink); font-weight:600; }
@@ -70,7 +80,29 @@ STYLE = """
 """
 
 
+PENDING = []
+
+
 def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line="Figures from the ArcPace weather model"):
+    """Queue a page. Pages are written last, once every page's title is known for the related links."""
+    PENDING.append(dict(path=path, title=title, description=description, h1=h1, body=body, faq=faq,
+                        crumb=crumb, sources=sources, meta_line=meta_line))
+    return path
+
+
+def slug(text):
+    return re.sub(r"[^a-z0-9]+", "-", html.unescape(re.sub(r"<[^>]+>", "", text)).lower()).strip("-")
+
+
+def anchors(markup):
+    """Every h2 gets an id and a # link, so a link (or an AI answer) can point at one section."""
+    def one(m):
+        sid = slug(m.group(1))
+        return f'<h2 id="{sid}">{m.group(1)} <a class="anchor" href="#{sid}" aria-label="Link to this section">#</a></h2>'
+    return re.sub(r"<h2>(.*?)</h2>", one, markup)
+
+
+def render(path, title, description, h1, body, faq, crumb, sources, meta_line, related_html=""):
     """One guide page: its own title and description, Article, FAQPage and BreadcrumbList data."""
     url = f"{SITE}/{path}"
     ld = [
@@ -131,6 +163,7 @@ def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line
 <meta property="og:image" content="{SITE}/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
+<meta name="apple-itunes-app" content="app-id={APP_STORE_ID}, app-argument={url}">
 <style>{STYLE}</style>
 {ld_html}
 </head>
@@ -139,9 +172,10 @@ def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">ArcPace</a><a href="/guides/">Guides</a></nav>
 <h1>{esc(h1)}</h1>
 <p class="meta">Updated {UPDATED} · {meta_line}</p>
-{body}
-{faq_html}
-<div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
+{anchors(body)}
+{anchors(faq_html)}
+{related_html}
+<div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. {'<a href="' + APP_STORE_URL + '">Get it on the App Store</a>' if APP_LIVE else '<a href="/">See the app</a>'}</p></div>
 <footer><a href="/">Home</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>
 </body>
@@ -224,7 +258,7 @@ ArcPace scales the heat cost to your easy pace, from 0.8× for fast runners to 2
 <li>Wind, rain, snow and altitude add their own costs in the app; these tables hold them at 5 mph, dry and sea level.</li>
 </ul>
 <p class="note">These are estimates for planning easy runs, not medical advice. In real heat, slow down by feel, drink, and stop if you feel unwell.
-For race-day risk, see <a href="/guides/wbgt-running-heat-flags/">WBGT and heat flags</a>.</p>
+For race-day risk, see <a href="/guides/wbgt-running-heat-flags/">WBGT and heat flags</a>; for when to stop, <a href="/guides/heat-illness-warning-signs/">heat illness warning signs</a>; for how to stay cool, <a href="/guides/running-in-the-heat/">how to run in the heat</a>.</p>
 """
 pace_faq = [
     ("How much slower should I run in heat and humidity?",
@@ -273,8 +307,8 @@ You should feel slightly cold at the door.</p></div>
 
 <h2>What changes the answer</h2>
 <ul>
-<li><strong>Wind</strong> strips heat fast. In the cold, a windproof layer matters more than a thicker one.</li>
-<li><strong>Rain</strong> near freezing is the coldest running there is: add a shell and gloves even when the number looks mild.</li>
+<li><strong>Wind</strong> strips heat fast. In the cold, a windproof layer matters more than a thicker one. <a href="/guides/running-in-the-cold/">Running in the cold</a>.</li>
+<li><strong>Rain</strong> near freezing is the coldest running there is: add a shell and gloves even when the number looks mild. <a href="/guides/rain-wind-storms-air-quality/">Running in rain and wind</a>.</li>
 <li><strong>Sun and humidity</strong> push the warm side up: light colors, a cap and sunglasses, and plan water.</li>
 <li><strong>You.</strong> Some runners run hot, some cold. ArcPace lets you set your cold and heat tolerance, and shifts the kit to match.</li>
 <li><strong>Long runs</strong> start cold and finish warm. Pick layers you can take off and carry.</li>
@@ -326,7 +360,7 @@ it weighs humidity most, then sun, then air temperature.</p>
 beside the run score, described in plain words. The flag is shown, not scored: the run score already counts heat and humidity,
 and the flag is there for race-day decisions.</p>
 <p class="note">Estimates from forecast data, not a measured reading. On race day, follow the organizer's official flag.
-Not medical advice.</p>
+Not medical advice. Know the <a href="/guides/heat-illness-warning-signs/">heat illness warning signs</a>.</p>
 """
 wbgt_faq = [
     ("What is WBGT in running?",
@@ -393,6 +427,25 @@ page("guides/", "Running weather guides | ArcPace",
      f"<p class='lede'>How the weather changes a run: practical guides, and reference tables with numbers from the model behind ArcPace.</p>"
      f"<h2>Running in the weather</h2><ul>{art_items}</ul><h2>Reference tables</h2><ul>{hub_items}</ul>",
      None, "Guides")
+
+RELATED = {
+    "running-in-the-heat": ["heat-illness-warning-signs", "running-pace-heat-humidity", "wbgt-running-heat-flags"],
+    "heat-illness-warning-signs": ["running-in-the-heat", "wbgt-running-heat-flags", "running-pace-heat-humidity"],
+    "running-in-the-cold": ["what-to-wear-running-by-temperature", "rain-wind-storms-air-quality", "running-in-the-heat"],
+    "rain-wind-storms-air-quality": ["running-in-the-cold", "running-in-the-heat", "what-to-wear-running-by-temperature"],
+    "running-pace-heat-humidity": ["running-in-the-heat", "wbgt-running-heat-flags", "heat-illness-warning-signs"],
+    "what-to-wear-running-by-temperature": ["running-in-the-cold", "running-in-the-heat", "rain-wind-storms-air-quality"],
+    "wbgt-running-heat-flags": ["heat-illness-warning-signs", "running-in-the-heat", "running-pace-heat-humidity"],
+}
+TITLES = {p.split("/")[1]: (p, t, d) for p, t, d in ARTICLES + GUIDES}
+for spec in PENDING:
+    key = spec["path"].split("/")[1] if spec["path"].count("/") > 1 else ""
+    rel = RELATED.get(key, [])
+    related_html = ""
+    if rel:
+        related_html = "<h2>Related guides</h2><ul class='related'>" + "".join(
+            f"<li><a href='/{TITLES[r][0]}'>{esc(TITLES[r][1])}</a><br><span class='note'>{esc(TITLES[r][2])}</span></li>" for r in rel) + "</ul>"
+    render(related_html=related_html, **spec)
 
 urls = ["", "guides/"] + [p for p, _, _ in ARTICLES] + [p for p, _, _ in GUIDES] + ["support/", "privacy/"]
 sitemap = "\n".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{UPDATED}</lastmod></url>" for u in urls)
