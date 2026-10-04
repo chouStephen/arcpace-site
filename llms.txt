@@ -18,6 +18,10 @@
 Add the air temperature and dew point in °F. Below about 120 the weather costs nothing (at 120, a few seconds); at a 10:00/mile easy pace a sum of 140 adds about 24 s/mi, 150 about 40 s/mi and 160 about 55 s/mi, in shade. Full sun adds more.
 
 ## Guides
+- [How to run in the heat: 12 ways to stay cool](https://arcpace.app/guides/running-in-the-heat/): timing, pacing by effort, wetting the skin, drinking to thirst with salt, and 10–14 days to adapt.
+- [Heat illness warning signs for runners](https://arcpace.app/guides/heat-illness-warning-signs/): heat cramps, heat exhaustion, heat stroke (call 911 and cool immediately), and hyponatremia.
+- [Running in the cold](https://arcpace.app/guides/running-in-the-cold/): layering, wind, ice, darkness, frostbite and hypothermia.
+- [Running in rain, wind, thunderstorms and smoke](https://arcpace.app/guides/rain-wind-storms-air-quality/): rain gear, wind tactics, lightning (go inside at thunder, wait 30 minutes), and AQI guidance.
 - [How much do heat and humidity slow your running pace?](https://arcpace.app/guides/running-pace-heat-humidity/): temperature + dew point tables for 8:00, 10:00 and 12:00 easy paces, in shade and sun.
 - [What to wear running, by temperature](https://arcpace.app/guides/what-to-wear-running-by-temperature/): kit from 10°F to 90°F.
 - [WBGT and race heat flags, explained](https://arcpace.app/guides/wbgt-running-heat-flags/): what each flag means.

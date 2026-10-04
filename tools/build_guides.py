@@ -70,7 +70,7 @@ STYLE = """
 """
 
 
-def page(path, title, description, h1, body, faq, crumb):
+def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line="Figures from the ArcPace weather model"):
     """One guide page: its own title and description, Article, FAQPage and BreadcrumbList data."""
     url = f"{SITE}/{path}"
     ld = [
@@ -109,6 +109,10 @@ def page(path, title, description, h1, body, faq, crumb):
     if faq:
         faq_html = "<h2>Questions</h2>\n" + "\n".join(
             f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
+    if sources:
+        faq_html += "\n<h2>Sources</h2>\n<ul>" + "".join(
+            f"<li><a href='{esc(u)}' rel='noopener'>{esc(n)}</a></li>" for n, u in sources) + "</ul>"
+        ld[0]["citation"] = [u for _, u in sources]
     ld_html = "\n".join(
         f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     out = f"""<!doctype html>
@@ -134,7 +138,7 @@ def page(path, title, description, h1, body, faq, crumb):
 <main>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">ArcPace</a><a href="/guides/">Guides</a></nav>
 <h1>{esc(h1)}</h1>
-<p class="meta">Updated {UPDATED} · Figures from the ArcPace weather model</p>
+<p class="meta">Updated {UPDATED} · {meta_line}</p>
 {body}
 {faq_html}
 <div class="cta"><p><strong>ArcPace</strong> does this for every hour of your forecast: a run score out of 100, the pace cost at your own easy pace, and what to wear. Free for iPhone. <a href="/">See the app</a></p></div>
@@ -361,15 +365,41 @@ GUIDES = [
      "What wet bulb globe temperature measures, and what each race flag means."),
 ]
 
+# ------------------------------------------------------------ articles ----
+import re
+VALUES = {
+    "s140": row[140]["shade"][i10], "s150": s150, "s160": s160,
+    "sun_humid_shade": ex["humid_75_70_shade"], "sun_humid_sun": ex["humid_75_70_sun"],
+}
+ARTICLES = []
+for f in sorted((ROOT / "content").glob("*.html")):
+    raw = f.read_text()
+    m = re.match(r"<!--meta\s*(\{.*?\})\s*-->\s*", raw, re.S)
+    meta = json.loads(m.group(1))
+    body = raw[m.end():]
+    for k, v in VALUES.items():
+        body = body.replace("{{" + k + "}}", str(v))
+    left = re.findall(r"\{\{(\w+)\}\}", body)
+    if left:
+        raise SystemExit(f"{f.name}: no value for {left}")
+    path = f"guides/{meta['slug']}/"
+    page(path, meta["title"], meta["description"], meta["h1"], body, meta["faq"], meta["crumb"],
+         meta.get("sources"), "General guidance, not medical advice")
+    ARTICLES.append((path, meta["listTitle"], meta["listBlurb"]))
+ORDER = ["running-in-the-heat", "heat-illness-warning-signs", "running-in-the-cold", "rain-wind-storms-air-quality"]
+ARTICLES.sort(key=lambda a: ORDER.index(a[0].split("/")[1]) if a[0].split("/")[1] in ORDER else 99)
+
+art_items = "".join(f"<li><a href='/{p}'><strong>{esc(t)}</strong></a><br>{esc(d)}</li>" for p, t, d in ARTICLES)
 hub_items = "".join(f"<li><a href='/{p}'><strong>{esc(t)}</strong></a><br>{esc(d)}</li>" for p, t, d in GUIDES)
 page("guides/", "Running weather guides | ArcPace",
-     "Guides to running in the weather: how heat and humidity slow your pace, what to wear by temperature, and WBGT heat flags. Figures from the ArcPace weather model.",
+     "Guides to running in the weather: staying cool in the heat, heat illness warning signs, cold, rain, wind, storms and smoke, plus pace, clothing and WBGT tables from the ArcPace model.",
      "Running weather guides",
-     f"<p class='lede'>How the weather changes a run, with numbers from the model behind ArcPace.</p><ul>{hub_items}</ul>",
+     f"<p class='lede'>How the weather changes a run: practical guides, and reference tables with numbers from the model behind ArcPace.</p>"
+     f"<h2>Running in the weather</h2><ul>{art_items}</ul><h2>Reference tables</h2><ul>{hub_items}</ul>",
      None, "Guides")
 
-urls = ["", "guides/"] + [p for p, _, _ in GUIDES] + ["support/", "privacy/"]
+urls = ["", "guides/"] + [p for p, _, _ in ARTICLES] + [p for p, _, _ in GUIDES] + ["support/", "privacy/"]
 sitemap = "\n".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{UPDATED}</lastmod></url>" for u in urls)
 (ROOT / "sitemap.xml").write_text(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap}\n</urlset>\n')
-print("built", len(GUIDES) + 1, "pages and sitemap.xml")
+print("built", len(GUIDES) + len(ARTICLES) + 1, "pages and sitemap.xml")
