@@ -8,7 +8,7 @@
 - Price: free. Optional tips ($2.99, $5.99, $14.99 in the US) unlock cosmetic extras only; no forecast feature is paid.
 - Weather data: Apple Weather (WeatherKit), with Open-Meteo as a backup.
 - Run score bands: Ideal 93–100, Great 84–92, Good 66–83, Moderate 46–65, Hard 26–45, Severe below 26. Thunderstorms and freezing rain cap the score.
-- Pace cost: seconds per mile (or km) the weather adds to your easy pace, against an ordinary day of about 60°F. Built on a temperature + dew point table, plus sun, wind, rain, snow and altitude, scaled to the runner's own pace (slower runners lose more in heat).
+- Pace cost: seconds per mile (or km) the weather adds to your easy pace, against an ordinary day (temperature plus dew point about 120°F, e.g. 65°F with a 55°F dew point); a cool, dry day comes back negative. Built on a temperature + dew point table, plus sun, wind, rain, snow and altitude, scaled to the runner's own pace (slower runners lose more in heat).
 - Heat stress: WBGT and the race heat flag (Green, Yellow, Red, Black) are shown for every hour.
 - Past runs: reads running workouts from Apple Health (read-only), scores the last 16 weeks against their weather, and shows a weather-adjusted fitness trend and bests. Works with any watch that saves runs to Apple Health, including Apple Watch, Garmin and COROS.
 - Widgets: Home Screen and Lock Screen widgets with this hour's score and the best window ahead. Optional evening notification with tomorrow's best time to run.
