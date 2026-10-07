@@ -39,6 +39,8 @@
   // Flip APP_LIVE to true once Apple approves ArcPace and the link opens a live page.
   const APP_LIVE = false;
   const APP_STORE_URL = 'https://apps.apple.com/app/id6815307156';
+  // Until then, the public TestFlight beta.
+  const TESTFLIGHT_URL = 'https://testflight.apple.com/join/ZhJBrcrc';
 </script>
 </head>
 <body>
@@ -241,10 +243,13 @@
       node.querySelector('a').href = APP_STORE_URL;
       slot.appendChild(node);
     } else {
-      var soon = document.createElement('span');
-      soon.className = 'soon';
-      soon.textContent = 'Coming soon to the App Store';
-      slot.appendChild(soon);
+      var beta = document.createElement('a');
+      beta.className = 'soon';
+      beta.href = TESTFLIGHT_URL;
+      beta.target = '_blank';
+      beta.rel = 'noopener';
+      beta.textContent = 'Join the beta on TestFlight';
+      slot.appendChild(beta);
     }
   });
 

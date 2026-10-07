@@ -31,7 +31,9 @@
 <script>
   // Mirrors the home page's APP_LIVE switch.
   var APP_LIVE = false;
-  if (APP_LIVE) document.getElementById('store').innerHTML = '<a href="https://apps.apple.com/app/id6815307156">Get ArcPace on the App Store</a>';
+  document.getElementById('store').innerHTML = APP_LIVE
+    ? '<a href="https://apps.apple.com/app/id6815307156">Get ArcPace on the App Store</a>'
+    : '<a href="https://testflight.apple.com/join/ZhJBrcrc">Join the beta on TestFlight</a>';
 </script>
 </body>
 </html>
