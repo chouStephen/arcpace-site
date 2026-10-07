@@ -117,7 +117,7 @@ def render(path, title, description, h1, body, faq, crumb, sources, meta_line, r
             "author": {"@type": "Organization", "name": "ArcPace", "url": SITE + "/"},
             "publisher": {"@type": "Organization", "name": "ArcPace", "url": SITE + "/",
                           "logo": {"@type": "ImageObject", "url": SITE + "/img/icon.png"}},
-            "image": SITE + "/img/og.png",
+            "image": SITE + "/img/og-v2.png",
             "isPartOf": {"@type": "WebSite", "name": "ArcPace", "url": SITE + "/"},
         },
         {
@@ -160,7 +160,7 @@ def render(path, title, description, h1, body, faq, crumb, sources, meta_line, r
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(description)}">
 <meta property="og:url" content="{url}">
-<meta property="og:image" content="{SITE}/img/og.png">
+<meta property="og:image" content="{SITE}/img/og-v2.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/img/favicon.png">
 <meta name="apple-itunes-app" content="app-id={APP_STORE_ID}, app-argument={url}">

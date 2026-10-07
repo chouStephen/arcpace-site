@@ -1,0 +1,70 @@
+<!doctype html>
+<!--
+  The link preview (og:image), 1200 x 630. Rendered to img/og-v2.png by
+  tools/make_og.mjs. Everything that must survive a square crop (Messages,
+  WhatsApp) sits in the centre 630 x 630: the name, the score ring, one line.
+  The hour strip on either side is for the wide card (Slack, LinkedIn, X).
+-->
+<html><head><meta charset="utf-8"><style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: -apple-system, 'SF Pro Display', system-ui, sans-serif; color: #F4F6FB;
+    background:
+      radial-gradient(ellipse 520px 420px at 50% 46%, rgba(61,220,151,0.22), transparent 70%),
+      linear-gradient(180deg, #0F1A2C 0%, #0A1020 55%, #07090F 100%);
+    position: relative;
+  }
+  .brand { position: absolute; top: 46px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 14px; }
+  .brand img { width: 52px; height: 52px; border-radius: 12px; }
+  .brand span { font-size: 40px; font-weight: 700; letter-spacing: -0.5px; }
+  .ring { position: absolute; left: 50%; top: 128px; transform: translateX(-50%); width: 300px; height: 300px; }
+  .ring svg { position: absolute; inset: 0; }
+  .ring .num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 18px; }
+  .ring .n { font-size: 124px; font-weight: 300; letter-spacing: -4px; line-height: 1; }
+  .ring .band { margin-top: 8px; font-size: 26px; font-weight: 800; letter-spacing: 4px; color: #3DDC97; }
+  .ring .cap { margin-top: 6px; font-size: 16px; font-weight: 600; letter-spacing: 2px; color: rgba(244,246,251,0.55); }
+  .line { position: absolute; left: 0; right: 0; top: 456px; text-align: center; font-size: 46px; font-weight: 800; letter-spacing: -1px; }
+  .line em { font-style: normal; color: #3DDC97; }
+  .sub { position: absolute; left: 0; right: 0; top: 520px; text-align: center; font-size: 26px; font-weight: 500; color: rgba(244,246,251,0.66); }
+  /* The hour strip: one bar per hour, coloured by its score, as Today's. */
+  .strip { position: absolute; top: 170px; display: flex; align-items: flex-end; gap: 6px; height: 230px; }
+  /* Outside the centre 630 x 630 (x 285 to 915), so a square crop shows none of them. */
+  .strip.left { left: 30px; } .strip.right { right: 30px; }
+  .col { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 44px; }
+  .h, .s { white-space: nowrap; }
+  .bar { width: 12px; border-radius: 6px; }
+  .s { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .h { font-size: 14px; font-weight: 600; color: rgba(244,246,251,0.45); }
+  .best .bar { box-shadow: 0 0 0 3px rgba(92,224,150,0.35); }
+  .best .h { color: #5CE096; }
+</style></head><body>
+  <div class="brand"><img src="../img/icon.png" alt=""><span>ArcPace</span></div>
+  <div class="ring">
+    <svg width="300" height="300" viewBox="0 0 300 300">
+      <!-- 80% arc, gap at the bottom, as the app's ring; filled to 88. -->
+      <circle cx="150" cy="150" r="130" fill="none" stroke="rgba(244,246,251,0.14)" stroke-width="26" stroke-linecap="round"
+        stroke-dasharray="653.5 1000" transform="rotate(126 150 150)"/>
+      <circle cx="150" cy="150" r="130" fill="none" stroke="url(#g)" stroke-width="26" stroke-linecap="round"
+        stroke-dasharray="627 1000" transform="rotate(126 150 150)"/>
+      <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#22B573"/><stop offset="1" stop-color="#6BEBA9"/></linearGradient></defs>
+    </svg>
+    <div class="num"><div class="n">96</div><div class="band">IDEAL</div><div class="cap">BEST AT 7 AM</div></div>
+  </div>
+  <div class="line">Find your best time to <em>run</em></div>
+  <div class="sub">Every hour scored, with pace cost and what to wear</div>
+  <div class="strip left" id="left"></div>
+  <div class="strip right" id="right"></div>
+  <script>
+    // A summer morning into the afternoon heat: 5 AM to 4 PM. The scores are
+    // illustrative, coloured on the app's ramp (lib/theme scoreColor stops).
+    const hours = [['5 AM', 90], ['6 AM', 93], ['7 AM', 96], ['8 AM', 88], ['9 AM', 79], ['10 AM', 70],
+                   ['11 AM', 64], ['12 PM', 58], ['1 PM', 54], ['2 PM', 52], ['3 PM', 55], ['4 PM', 61]];
+    const color = s => s >= 93 ? '#3DDC97' : s >= 84 ? '#5CE096' : s >= 66 ? '#B9E36A' : s >= 46 ? '#F2C94C' : '#F2994A';
+    const col = ([h, s], best) => `<div class="col${best ? ' best' : ''}"><div class="s" style="color:${color(s)}">${s}</div>
+      <div class="bar" style="height:${Math.round((s - 30) * 2.4)}px;background:${color(s)}"></div><div class="h">${h}</div></div>`;
+    document.getElementById('left').innerHTML = hours.slice(0, 5).map((x, i) => col(x, i === 2)).join('');
+    document.getElementById('right').innerHTML = hours.slice(7, 12).map(x => col(x, false)).join('');
+    window.ready = true;
+  </script>
+</body></html>
