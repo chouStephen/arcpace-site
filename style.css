@@ -95,12 +95,14 @@ h1 { font-size: clamp(40px, 9vw, 68px); font-weight: 700; }
 
 @media (min-width: 900px) {
   .hero { padding: 96px 0 64px; }
-  .hero-inner { grid-template-columns: 1.15fr 1fr; gap: 64px; }
+  /* Text takes the room; the picture's column is exactly the picture, so
+     its edge is the page's content edge in every section. */
+  .hero-inner { grid-template-columns: minmax(0, 1fr) auto; gap: 80px; }
   .hero-copy { text-align: left; }
   .hero-copy .app-icon { margin-left: 0; }
   .lede { margin-left: 0; }
   .hero .store { justify-content: flex-start; }
-  .hero-shot img { width: 360px; margin-left: auto; margin-right: 0; }
+  .hero-shot img { width: 320px; margin: 0; }
 }
 
 /* Store slot: badge when live, the TestFlight beta link otherwise. */
@@ -139,9 +141,14 @@ a.soon:hover { border-color: var(--accent-ink); }
 
 @media (min-width: 900px) {
   .feature { padding: 112px 0; }
-  .feature-inner { grid-template-columns: 1fr 1fr; gap: 80px; }
+  /* As the hero: text fills, the picture's column is the picture. One size
+     for every single screenshot (300) and for each of a pair (240), so the
+     sections line up down the page (Stephen, 2026-10-07). */
+  .feature-inner, .feature-inner.wide { grid-template-columns: minmax(0, 1fr) auto; gap: 80px; }
+  .feature.alt .feature-inner, .feature.alt .feature-inner.wide { grid-template-columns: auto minmax(0, 1fr); }
   .feature.alt .feature-copy { order: 2; }
-  .feature-inner.wide { grid-template-columns: 0.9fr 1.1fr; }
+  .feature-shot img { width: 300px; margin: 0; }
+  .feature-shot.pair img { width: 240px; max-width: none; }
 }
 
 /* Privacy */
