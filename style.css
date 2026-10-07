@@ -102,7 +102,9 @@ h1 { font-size: clamp(40px, 9vw, 68px); font-weight: 700; }
   .hero-copy .app-icon { margin-left: 0; }
   .lede { margin-left: 0; }
   .hero .store { justify-content: flex-start; }
-  .hero-shot img { width: 320px; margin: 0; }
+  /* The same width as every feature screenshot, so both edges line up down
+     the page, not just the outer one (Stephen, 2026-10-07). */
+  .hero-shot img { width: 300px; margin: 0; }
 }
 
 /* Store slot: badge when live, the TestFlight beta link otherwise. */
