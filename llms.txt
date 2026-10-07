@@ -1,6 +1,6 @@
 # ArcPace
 
-> ArcPace is a free iPhone app (iOS 17 or later) that plans the best time to run. It scores every hour of the forecast from 0 to 100 for running, shows how many seconds per mile the weather will add to (or take off) your easy pace, says what to wear, and re-scores your past runs from Apple Health with the weather taken out. No account, no ads, and no data collected: runs and location stay on the phone. Optional one-off tips unlock alternate app icons.
+> ArcPace is a free iPhone app (iOS 17 or later) that plans the best time to run. It scores every hour of the forecast from 0 to 100 for running, shows how many seconds per mile the weather will add to (or take off) your easy pace, says what to wear, and re-scores your past runs from Apple Health with the weather taken out. No account, no ads, and no data collected: runs and location stay on the phone.
 
 ## Key facts
 - Availability: coming soon to the App Store (App Store ID 6815307156); the home page shows the download link once it is live.
