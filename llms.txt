@@ -5,7 +5,7 @@
 ## Key facts
 - Availability: coming soon to the App Store (App Store ID 6815307156); the home page shows the download link once it is live.
 - Platform: iPhone only, iOS 17+. No Android or web app.
-- Price: free. Optional tips ($2.99, $5.99, $14.99 in the US) unlock cosmetic extras only; no forecast feature is paid.
+- Price: free. No ads, no account, no subscription.
 - Weather data: Apple Weather (WeatherKit), with Open-Meteo as a backup.
 - Run score bands: Ideal 93–100, Great 84–92, Good 66–83, Moderate 46–65, Hard 26–45, Severe below 26. Thunderstorms and freezing rain cap the score.
 - Pace cost: seconds per mile (or km) the weather adds to your easy pace, against an ordinary day (temperature plus dew point about 120°F, e.g. 65°F with a 55°F dew point); a cool, dry day comes back negative. Built on a temperature + dew point table, plus sun, wind, rain, snow and altitude, scaled to the runner's own pace (slower runners lose more in heat).
