@@ -221,3 +221,14 @@ a.soon:hover { border-color: var(--accent-ink); }
 .faq details p { color: var(--text-dim); margin: 0 0 20px; max-width: 40em; }
 .faq-more { color: var(--text-dim); margin: 24px 0 0; max-width: 760px; }
 .faq-more a { color: var(--accent-ink); }
+
+/* Screenshots follow the page's appearance: the dark set when the page is
+   dark (system dark on Auto, or Dark picked), the light set otherwise. Same
+   rules as the colour tokens above, so a picked appearance always wins. */
+.shot-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .shot-dark { display: block; }
+  :root:not([data-theme="light"]) .shot-light { display: none; }
+}
+:root[data-theme="dark"] .shot-dark { display: block; }
+:root[data-theme="dark"] .shot-light { display: none; }
