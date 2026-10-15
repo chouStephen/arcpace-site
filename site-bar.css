@@ -1,0 +1,31 @@
+/* The site bar on every page but the home page, drawn to match the home
+   page's top bar (style.css .topbar): full width, sticky, 52 px, the same
+   1080 px content edge. Each page's own --bg, --ink, --dim, --rule and
+   --accent colour it. */
+/* The home page's accent, so the selected appearance looks the same everywhere. */
+:root { --bar-on: #17C286; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bar-on: #3DDC97; } }
+:root[data-theme="dark"] { --bar-on: #3DDC97; }
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  -webkit-backdrop-filter: saturate(160%) blur(14px); backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--rule);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+}
+.topbar-inner { max-width: 1080px; margin: 0 auto; padding: 0 16px; height: 52px; display: flex; align-items: center; box-sizing: border-box; }
+@media (min-width: 720px) { .topbar-inner { padding: 0 32px; } }
+.topbar .brand { display: inline-flex; align-items: center; gap: 8px; flex: none; font-weight: 700; font-size: 17px; line-height: 1; color: var(--ink); text-decoration: none; }
+.topbar .brand img { border-radius: 7px; }
+.topbar .topnav { display: flex; gap: 18px; margin-left: auto; margin-right: 16px; padding-left: 14px; font-size: 15px; }
+.topbar .topnav a { color: var(--dim); text-decoration: none; padding: 12px 0; }
+.topbar .topnav a:hover { color: var(--accent); }
+.topbar .topnav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.topbar .theme { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: color-mix(in srgb, var(--bar-on) 10%, transparent); border: 1px solid var(--rule); }
+.topbar .theme button { display: grid; place-items: center; width: 36px; height: 30px; padding: 0; color: var(--dim); background: none; border: 0; border-radius: 999px; cursor: pointer; }
+.topbar .theme svg { width: 17px; height: 17px; }
+.topbar .theme button[aria-pressed="true"] { background: var(--bar-on); color: #07090F; }
+.topbar .theme button:focus-visible { outline: 2px solid var(--bar-on); outline-offset: 2px; }
+@media (max-width: 420px) { .topbar .brand-name { display: none; } }
+@media (max-width: 400px) { .topbar .topnav { gap: 12px; margin-right: 10px; font-size: 14px; } }
+@media (max-width: 360px) { .topbar .topnav { gap: 10px; margin-right: 6px; padding-left: 8px; font-size: 13px; } .topbar .theme button { width: 28px; } }

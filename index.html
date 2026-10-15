@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ArcPace — Find your best time to run</title>
+<meta name="description" content="ArcPace scores every hour 0–100 for running, shows what the weather will cost your pace, tells you what to wear, and scores your past runs with the weather taken out. Free for iPhone. No accounts, no ads.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07090F" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ArcPace — Find your best time to run">
+<meta property="og:description" content="Every hour scored 0–100 for running, with the pace cost of the weather and what to wear. Free for iPhone.">
+<meta property="og:image" content="https://arcpace.app/img/og-v4.png">
+<meta property="og:image:alt" content="ArcPace: every hour, scored for a run. A run score of 96, Ideal, best at 7 AM. Free for iPhone.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://arcpace.app/">
+<link rel="canonical" href="https://arcpace.app/">
+<meta name="apple-itunes-app" content="app-id=6815307156, app-argument=https://arcpace.app/open">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+<!-- Structured data for search engines and AI assistants. The FAQ here mirrors the Questions section word for word; change both together. -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "ArcPace", "alternateName": "ArcPace: Weather for Runners", "operatingSystem": "iOS 17 or later", "applicationCategory": "HealthApplication", "applicationSubCategory": "Running weather", "description": "ArcPace scores every hour 0–100 for running, shows what the weather will cost your pace, tells you what to wear, and scores your past runs with the weather taken out. Free for iPhone. No accounts, no ads.", "url": "https://arcpace.app/", "image": "https://arcpace.app/img/og-v4.png", "screenshot": ["https://arcpace.app/img/app/today-dark.webp", "https://arcpace.app/img/app/days-dark.webp", "https://arcpace.app/img/app/history-dark.webp"], "installUrl": "https://apps.apple.com/app/id6815307156", "downloadUrl": "https://apps.apple.com/app/id6815307156", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "featureList": ["Run score from 0 to 100 for every hour", "Pace cost of the weather in seconds per mile or km", "What to wear for each hour", "A 24-hour forecast for every factor", "A 10-day run forecast, hour by hour", "WBGT heat flags for every hour", "Past runs from Apple Health re-scored with the weather taken out", "Home Screen and Lock Screen widgets", "Share cards for past runs"], "publisher": {"@type": "Organization", "name": "ArcPace", "url": "https://arcpace.app/", "email": "support@arcpace.app"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "ArcPace", "url": "https://arcpace.app/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is ArcPace free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. No ads, no account and no subscription."}}, {"@type": "Question", "name": "What does the run score mean?", "acceptedAnswer": {"@type": "Answer", "text": "Every hour gets a score from 0 to 100 for running: Ideal 93 and up, Great 84–92, Good 66–83, Moderate 46–65, Hard 26–45 and Severe below 26. Thunderstorms and freezing rain cap the score whatever the temperature."}}, {"@type": "Question", "name": "What is the pace cost?", "acceptedAnswer": {"@type": "Answer", "text": "The seconds per mile (or kilometer) the weather adds to your easy pace, compared with an ordinary mild day. It counts temperature, dew point, sun, wind, rain and altitude, scaled to your own pace. A cool, dry day comes back negative: you'll run faster for the same effort."}}, {"@type": "Question", "name": "Which watches work with it?", "acceptedAnswer": {"@type": "Answer", "text": "Any watch or app that saves your runs to Apple Health. Apple Watch also saves the route and heart rate. Many others, such as Garmin and COROS, don't save a route, so you tell ArcPace where you usually run and when you travel, and those runs are marked as approximate."}}, {"@type": "Question", "name": "Is there an Android or web version?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. ArcPace is for iPhone, on iOS 17 or later. On the web, the free running weather calculator scores any weather for your pace."}}, {"@type": "Question", "name": "What data does ArcPace collect?", "acceptedAnswer": {"@type": "Answer", "text": "None. Your runs are read from Apple Health and stay on your phone. Your location goes only to the weather service, Apple Weather. Privacy policy."}}, {"@type": "Question", "name": "How do I get in touch?", "acceptedAnswer": {"@type": "Answer", "text": "Email support@arcpace.app, or use Send feedback in the app's Settings."}}]}</script>
+
+<script>
+  // Appearance, before first paint so there is no flash: a saved choice
+  // ("light" / "dark") wins; with none, the page follows the system.
+  try {
+    var savedTheme = localStorage.getItem('arcpace-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+  } catch (e) {}
+</script>
+<script>
+  // ---- App Store link: the only place it lives. ----
+  // Flip APP_LIVE to true once Apple approves ArcPace and the link opens a live page.
+  const APP_LIVE = true;
+  const APP_STORE_URL = 'https://apps.apple.com/app/id6815307156';
+  // Until then, the public TestFlight beta.
+  const TESTFLIGHT_URL = 'https://testflight.apple.com/join/ZhJBrcrc';
+</script>
+</head>
+<body>
+
+<!-- Top bar: the name, and the appearance switch where a visitor looks for it. -->
+<nav class="topbar" aria-label="Site">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#" aria-label="ArcPace"><img src="img/icon.png" width="28" height="28" alt=""><span class="brand-name">ArcPace</span></a>
+    <div class="topnav"><a href="calculator/">Calculator</a><a href="guides/">Guides</a></div>
+    <div class="theme" role="group" aria-label="Appearance">
+      <button type="button" data-theme-choice="auto" aria-label="Automatic, follows your device" title="Auto">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 3a7 7 0 0 1 0 14z" fill="currentColor"/></svg>
+      </button>
+      <button type="button" data-theme-choice="light" aria-label="Light" title="Light">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6"/></g></svg>
+      </button>
+      <button type="button" data-theme-choice="dark" aria-label="Dark" title="Dark">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.6A7 7 0 0 1 7.4 3.5a7 7 0 1 0 9.1 9.1z" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <img class="app-icon" src="img/icon.png" width="96" height="96" alt="ArcPace app icon">
+      <p class="eyebrow">ArcPace</p>
+      <h1>Find your best time to&nbsp;run.</h1>
+      <p class="lede">Every hour gets a run score out of 100, plus what the weather will cost your pace and what to wear.</p>
+      <div class="store" data-store></div>
+      <p class="fine">Free. No subscription, no account. Works with any watch that saves to Apple Health.</p>
+    </div>
+    <div class="hero-shot phone"><div class="bezel">
+      <img class="shot-dark" src="img/app/today-dark.webp" width="600" height="1120" alt="ArcPace Today: run score 88, Great, plus 4 seconds per mile on a 9:00 easy pace, and the best hour in each of your run times">
+      <img class="shot-light" src="img/app/today-light.webp" width="600" height="1120" alt="ArcPace Today: run score 88, Great, plus 4 seconds per mile on a 9:00 easy pace, and the best hour in each of your run times"></div></div>
+  </div>
+</header>
+
+<main>
+  <!-- Same hour, two ways. Real ArcPace readings: Arlington, Tue Jul 28 2026, 7 AM, and the next run time scoring Good (Thu Jul 30, 5 AM, 73°, dew point 56°), from the archived forecast the screenshots use, as of Jul 23. -->
+  <section class="versus" aria-labelledby="versus-h">
+    <div class="wrap">
+      <p class="kicker">Why not just check the weather?</p>
+      <h2 id="versus-h">75° and clear sounds perfect. It&nbsp;isn’t.</h2>
+      <div class="versus-grid">
+        <div class="vs vs-them">
+          <p class="vs-label">Weather app, Tuesday 7 AM</p>
+          <div class="vs-hero"><span class="vs-temp">75°</span><svg class="sun" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><circle cx="12" cy="12" r="4.6" fill="#F5B83D"/><g stroke="#F5B83D" stroke-width="2" stroke-linecap="round"><path d="M12 1.8v2.6M12 19.6v2.6M1.8 12h2.6M19.6 12h2.6M4.8 4.8l1.8 1.8M17.4 17.4l1.8 1.8M4.8 19.2l1.8-1.8M17.4 6.6l1.8-1.8"/></g></svg></div>
+          <p class="vs-body">75° and clear. Feels like 81°. Dew point 69°. Wind 4&nbsp;mph.</p>
+          <p class="vs-foot">Looks like a nice summer morning.</p>
+        </div>
+        <div class="vs vs-us">
+          <p class="vs-label">ArcPace, Tuesday 7 AM</p>
+          <div class="vs-hero"><svg class="ring" viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="none" stroke="currentColor" stroke-opacity="0.16" stroke-width="8" stroke-linecap="round" stroke-dasharray="140.7 400" transform="rotate(126 32 32)"/>
+            <circle class="ring-fill" cx="32" cy="32" r="28" fill="none" stroke="var(--ring48)" stroke-width="8" stroke-linecap="round" stroke-dasharray="67.6 400" style="--len:67.6" transform="rotate(126 32 32)"/>
+            <text x="32" y="38" text-anchor="middle">48</text>
+          </svg></div>
+          <p class="vs-body"><strong class="s48">48, Moderate.</strong> Adds 24&nbsp;s/mi to your 9:00 easy pace. Singlet, and carry water. Heat flag: yellow.</p>
+          <p class="vs-next">Next good run time: <strong class="s78">Thursday 5&nbsp;AM, 78</strong></p>
+          <p class="vs-foot">Run it easy, or move it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature tap">
+    <div class="wrap feature-inner">
+      <div class="feature-copy">
+        <p class="kicker">Depth when you want it</p>
+        <h2>Tap any number to see&nbsp;why.</h2>
+        <p>Every factor gets its own page: what it’s doing to your run, what to do about it, and its next 24&nbsp;hours. Try one.</p>
+        <div class="factors" role="group" aria-label="Pick a factor">
+          <button type="button" data-f="temp" data-label="Temperature, 68°" aria-pressed="false"><b>68°</b>Temp</button>
+          <button type="button" data-f="dew" data-label="Dew point, 53°" aria-pressed="true"><b>53°</b>Dew point</button>
+          <button type="button" data-f="rain" data-label="Rain, 0%" aria-pressed="false"><b>0%</b>Rain</button>
+          <button type="button" data-f="wind" data-label="Wind, 7 mph" aria-pressed="false"><b>7</b>Wind mph</button>
+          <button type="button" data-f="uv" data-label="UV index, 0" aria-pressed="false"><b>0</b>UV</button>
+          <button type="button" data-f="flag" data-label="Heat flag, 62°" aria-pressed="false"><b>62°</b>Heat flag</button>
+        </div>
+        <p class="factor-note" aria-live="polite"></p>
+      </div>
+      <div class="feature-shot phone" id="factor-shot"><div class="bezel">
+        <img class="shot-dark" src="img/app/f-dew-dark.webp" loading="lazy" width="600" height="974" alt="">
+        <img class="shot-light" src="img/app/f-dew-light.webp" loading="lazy" width="600" height="974" alt=""></div></div>
+    </div>
+  </section>
+
+  <section class="feature alt">
+    <div class="wrap feature-inner">
+      <div class="feature-copy">
+        <p class="kicker">10-day run forecast</p>
+        <h2>Long run Saturday? Pick the hour on&nbsp;Tuesday.</h2>
+        <p>Ten days of hourly run scores. Drag across any day to see when it peaks and when it falls apart.</p>
+      </div>
+      <div class="feature-shot phone"><div class="bezel">
+        <img class="shot-dark" src="img/app/days-dark.webp" loading="lazy" width="600" height="1210" alt="Saturday in the 10-day forecast: best run 74, Good, at 5 AM, with the day's run score charted hour by hour from 80 down to 45">
+        <img class="shot-light" src="img/app/days-light.webp" loading="lazy" width="600" height="1210" alt="Saturday in the 10-day forecast: best run 74, Good, at 5 AM, with the day's run score charted hour by hour from 80 down to 45"></div></div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="wrap feature-inner">
+      <div class="feature-copy">
+        <p class="kicker">Your run times, on your Home Screen</p>
+        <h2>Tell it when you can run. It watches those hours for&nbsp;you.</h2>
+        <p>Save up to three windows, like before work or after the kids are down. ArcPace finds the best hour in each, today and tomorrow.</p>
+      </div>
+      <div class="widgets">
+        <figure class="wg wg-medium">
+          <img class="shot-dark" src="img/app/w-medium-dark.webp" loading="lazy" width="728" height="340" alt="Medium widget: Arlington, run score 88, Great, 68°, pace +4s/mi, and three run times: midday 64, evening 65, early morning tomorrow 93">
+          <img class="shot-light" src="img/app/w-medium-light.webp" loading="lazy" width="728" height="340" alt="Medium widget: Arlington, run score 88, Great, 68°, pace +4s/mi, and three run times: midday 64, evening 65, early morning tomorrow 93">
+          <figcaption>Medium: your run times</figcaption>
+        </figure>
+        <figure class="wg wg-small">
+          <img class="shot-dark" src="img/app/w-small-dark.webp" loading="lazy" width="340" height="340" alt="Small widget: run score 88, Great, pace +4s/mi, best tomorrow at 6 AM, 93">
+          <img class="shot-light" src="img/app/w-small-light.webp" loading="lazy" width="340" height="340" alt="Small widget: run score 88, Great, pace +4s/mi, best tomorrow at 6 AM, 93">
+          <figcaption>Small: this hour</figcaption>
+        </figure>
+        <figure class="wg wg-lock">
+          <img src="img/app/w-lock.webp" loading="lazy" width="600" height="240" alt="Lock Screen widgets: Run 88, Great, 68°, pace +4s/mi, and a ring showing 88">
+          <figcaption>Lock Screen</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature alt">
+    <div class="wrap feature-inner">
+      <div class="feature-copy">
+        <p class="kicker">After the run</p>
+        <h2>Slow summer? Probably the&nbsp;humidity.</h2>
+        <p>ArcPace takes the weather out of every run, so you see your real fitness. Free, with any watch that saves to Apple Health: Apple Watch, Garmin, COROS. Share any run as a card.</p>
+      </div>
+      <div class="feature-shot phone"><div class="bezel">
+        <img class="shot-dark" src="img/app/history-dark.webp" loading="lazy" width="600" height="892" alt="History: 16 weeks of runs, and a fitness trend that reads: your pace looks flat since April; take the weather out and you're 22 seconds per mile faster">
+        <img class="shot-light" src="img/app/history-light.webp" loading="lazy" width="600" height="892" alt="History: 16 weeks of runs, and a fitness trend that reads: your pace looks flat since April; take the weather out and you're 22 seconds per mile faster"></div></div>
+    </div>
+  </section>
+
+  <section class="different" aria-labelledby="different-h">
+    <div class="wrap">
+      <h2 id="different-h">What makes ArcPace different</h2>
+      <div class="diff-grid">
+        <div class="diff">
+          <h3>One score, read in a second</h3>
+          <p>Heat, dew point, wind, rain, sun and altitude in one number out of 100, tuned to your pace.</p>
+        </div>
+        <div class="diff">
+          <h3>Depth when you want it</h3>
+          <p>Tap any factor for what it’s doing to your run and what to do about it.</p>
+        </div>
+        <div class="diff">
+          <h3>Free, and fast</h3>
+          <p>Everything’s free: no subscription, no account, no ads. It opens straight to your score.</p>
+        </div>
+        <div class="diff">
+          <h3>A forecast for every factor</h3>
+          <p>Each factor’s next 24 hours, and run scores hour by hour for the days ahead.</p>
+        </div>
+        <div class="diff">
+          <h3>Built around your run times</h3>
+          <p>Save up to three windows. ArcPace finds the best hour in each, today and tomorrow.</p>
+        </div>
+        <div class="diff">
+          <h3>Widgets</h3>
+          <p>Your score and best windows on the Home Screen. This hour on the Lock Screen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy">
+    <div class="wrap privacy-inner">
+      <svg class="lock" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M6.5 10.5V8a5.5 5.5 0 0 1 11 0v2.5M5.5 10.5h13a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1Z"/></svg>
+      <h2>No account. No ads.<br>Your runs stay on your phone.</h2>
+      <p>Only a place and an hour go to the weather service, Apple Weather. No analytics, and no server of ours holding your data.</p>
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-inner">
+      <h2 id="faq-h">Questions</h2>
+      <details>
+        <summary>Is ArcPace free?</summary>
+        <p>Yes. No ads, no account and no subscription.</p>
+      </details>
+      <details>
+        <summary>What does the run score mean?</summary>
+        <p>Every hour gets a score from 0 to 100 for running: Ideal 93 and up, Great 84–92, Good 66–83, Moderate 46–65, Hard 26–45 and Severe below 26. Thunderstorms and freezing rain cap the score whatever the temperature.</p>
+      </details>
+      <details>
+        <summary>What is the pace cost?</summary>
+        <p>The seconds per mile (or kilometer) the weather adds to your easy pace, compared with an ordinary mild day. It counts temperature, dew point, sun, wind, rain and altitude, scaled to your own pace. A cool, dry day comes back negative: you'll run faster for the same effort.</p>
+      </details>
+      <details>
+        <summary>Which watches work with it?</summary>
+        <p>Any watch or app that saves your runs to Apple Health. Apple Watch also saves the route and heart rate. Many others, such as Garmin and COROS, don't save a route, so you tell ArcPace where you usually run and when you travel, and those runs are marked as approximate.</p>
+      </details>
+      <details>
+        <summary>Is there an Android or web version?</summary>
+        <p>Not yet. ArcPace is for iPhone, on iOS 17 or later. On the web, the free <a href="calculator/">running weather calculator</a> scores any weather for your pace.</p>
+      </details>
+      <details>
+        <summary>What data does ArcPace collect?</summary>
+        <p>None. Your runs are read from Apple Health and stay on your phone. Your location goes only to the weather service, Apple Weather. <a href="privacy/">Privacy policy</a>.</p>
+      </details>
+      <details>
+        <summary>How do I get in touch?</summary>
+        <p>Email <a href="mailto:support@arcpace.app">support@arcpace.app</a>, or use Send feedback in the app's Settings.</p>
+      </details>
+      <p class="faq-more">More on running in the weather: <a href="guides/running-in-the-heat/">how to run in the heat</a>, <a href="guides/heat-illness-warning-signs/">heat illness warning signs</a>, <a href="guides/running-pace-heat-humidity/">how heat and humidity slow your pace</a>, <a href="guides/what-to-wear-running-by-temperature/">what to wear by temperature</a> and <a href="guides/wbgt-running-heat-flags/">WBGT heat flags</a>.</p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta-inner">
+      <img class="app-icon small" src="img/icon.png" width="72" height="72" alt="" loading="lazy">
+      <h2>What’s your run score right&nbsp;now?</h2>
+      <p>Free for iPhone. No account, no ads.</p>
+      <div class="store" data-store></div>
+      <p class="fine">No iPhone? Try the <a href="calculator/">running weather calculator</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© 2026 ArcPace</p>
+    <nav aria-label="Legal">
+      <a href="privacy/">Privacy</a>
+      <a href="privacy/#terms">Terms</a>
+      <a href="#faq-h">FAQ</a>
+      <a href="support/">Support</a>
+      <a href="calculator/">Calculator</a>
+      <a href="guides/">Guides</a>
+    </nav>
+  </div>
+</footer>
+
+<template id="badge">
+  <a class="badge" target="_blank" rel="noopener" aria-label="Download on the App Store">
+    <svg class="apple" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+    <span class="badge-text"><span class="badge-small">Download on the</span><span class="badge-big">App Store</span></span>
+  </a>
+</template>
+
+<script>
+  document.querySelectorAll('[data-store]').forEach(function (slot) {
+    if (APP_LIVE) {
+      var node = document.getElementById('badge').content.cloneNode(true);
+      node.querySelector('a').href = APP_STORE_URL;
+      slot.appendChild(node);
+    } else {
+      var beta = document.createElement('a');
+      beta.className = 'soon';
+      beta.href = TESTFLIGHT_URL;
+      beta.target = '_blank';
+      beta.rel = 'noopener';
+      beta.textContent = 'Join the beta on TestFlight';
+      slot.appendChild(beta);
+    }
+  });
+
+  // Tap any number: each factor button shows that factor's page in the phone.
+  (function () {
+    var NOTES = {
+      temp: 'Above about 60°F your blood goes to your skin to cool you, not to your legs.',
+      dew: 'Dew point, not humidity, decides whether sweat can cool you. Above about 65°, it barely can.',
+      rain: 'Rain is mostly about comfort and footing. On a warm day it barely cools you.',
+      wind: 'A headwind costs about twice what the same tailwind gives back.',
+      uv: 'Sun on your skin adds heat. ArcPace says when to cover up.',
+      flag: 'The flag big races fly at the start. Yellow: slow down and drink. Red: no hard efforts. Black: the race is off. It comes from WBGT, a heat reading that counts humidity and sun, not just the thermometer.'
+    };
+    var buttons = document.querySelectorAll('[data-f]');
+    var shot = document.getElementById('factor-shot');
+    var note = document.querySelector('.factor-note');
+    if (!shot || !note) return;
+    var imgs = shot.querySelectorAll('img');
+    function show(b) {
+      var f = b.dataset.f;
+      buttons.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      var next = ['img/app/f-' + f + '-dark.webp', 'img/app/f-' + f + '-light.webp'];
+      if (imgs[0].getAttribute('src') !== next[0]) {
+        shot.classList.add('swapping');
+        var pre = new Image(); pre.src = next[shot.querySelector('.shot-dark').offsetParent ? 0 : 1];
+        var go = function () { imgs[0].src = next[0]; imgs[1].src = next[1]; shot.classList.remove('swapping'); };
+        (pre.decode ? pre.decode() : Promise.resolve()).then(go, go);
+      }
+      imgs[0].alt = imgs[1].alt = 'ArcPace factor page for ' + b.dataset.label + ': why it matters, what to do, and the next 24 hours';
+      note.textContent = NOTES[f];
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { show(b); }); });
+    show(document.querySelector('[data-f][aria-pressed="true"]'));
+  })();
+
+  // Sections ease in as they scroll into view. Only with script and without
+  // Reduce Motion; everything is visible otherwise.
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('.versus .wrap, .feature-inner, .different .wrap');
+    document.documentElement.classList.add('reveal-on');
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Appearance: Auto follows the system (the default); Light and Dark are
+  // remembered on this browser only.
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('[data-theme-choice]');
+    function current() { return root.dataset.theme || 'auto'; }
+    function paint() {
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.themeChoice === current())); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var choice = b.dataset.themeChoice;
+        if (choice === 'auto') delete root.dataset.theme; else root.dataset.theme = choice;
+        try {
+          if (choice === 'auto') localStorage.removeItem('arcpace-theme');
+          else localStorage.setItem('arcpace-theme', choice);
+        } catch (e) {}
+        paint();
+      });
+    });
+    paint();
+  })();
+</script>
+</body>
+</html>

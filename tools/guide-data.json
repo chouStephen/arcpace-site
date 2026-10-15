@@ -1,0 +1,392 @@
+{
+ "wear": [
+  {
+   "tempF": 10,
+   "items": [
+    {
+     "label": "Base + mid + windproof shell",
+     "why": "Three layers, nothing cotton"
+    },
+    {
+     "label": "Thermal tights + wind briefs",
+     "why": "Bitter cold"
+    },
+    {
+     "label": "Insulated gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Buff or neck gaiter",
+     "why": "Warms the air you breathe"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 20,
+   "items": [
+    {
+     "label": "Thermal top + wind jacket",
+     "why": "Two layers, outer one windproof"
+    },
+    {
+     "label": "Thermal tights",
+     "why": "Below freezing"
+    },
+    {
+     "label": "Insulated gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Buff or neck gaiter",
+     "why": "Warms the air you breathe"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 30,
+   "items": [
+    {
+     "label": "Long sleeve + light vest",
+     "why": "Core warm, arms free to dump heat"
+    },
+    {
+     "label": "Tights",
+     "why": "Cold enough for covered legs"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Beanie over ears",
+     "why": "Ears are the first to sting"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 35,
+   "items": [
+    {
+     "label": "Long sleeve + light vest",
+     "why": "Core warm, arms free to dump heat"
+    },
+    {
+     "label": "Tights",
+     "why": "Cold enough for covered legs"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Headband over ears",
+     "why": "Ears feel the cold before the rest of you"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 40,
+   "items": [
+    {
+     "label": "Long sleeve, light",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts or capris",
+     "why": "Cool enough that either works"
+    },
+    {
+     "label": "Light gloves",
+     "why": "Hands lose heat first"
+    },
+    {
+     "label": "Headband over ears",
+     "why": "Ears feel the cold before the rest of you"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 45,
+   "items": [
+    {
+     "label": "Short sleeve + arm warmers",
+     "why": "Shed the sleeves once you are warm"
+    },
+    {
+     "label": "Shorts",
+     "why": "Legs warm up fast"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 50,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 55,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 60,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 65,
+   "items": [
+    {
+     "label": "Technical tee",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Shorts",
+     "why": "Warm enough for bare legs"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 70,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 75,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 80,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 85,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  },
+  {
+   "tempF": 90,
+   "items": [
+    {
+     "label": "Singlet or shirtless",
+     "why": "Feels much warmer once you're moving"
+    },
+    {
+     "label": "Split shorts",
+     "why": "Maximum airflow"
+    },
+    {
+     "label": "Cap",
+     "why": "UV index 8"
+    },
+    {
+     "label": "Sunglasses",
+     "why": "UV index 8"
+    }
+   ]
+  }
+ ],
+ "wbgt": [
+  {
+   "tempF": 70,
+   "dewpointF": 60,
+   "solarWm2": 0,
+   "wbgtF": 65,
+   "flag": "Yellow"
+  },
+  {
+   "tempF": 75,
+   "dewpointF": 65,
+   "solarWm2": 300,
+   "wbgtF": 71,
+   "flag": "Yellow"
+  },
+  {
+   "tempF": 80,
+   "dewpointF": 70,
+   "solarWm2": 600,
+   "wbgtF": 77,
+   "flag": "Red"
+  },
+  {
+   "tempF": 85,
+   "dewpointF": 70,
+   "solarWm2": 800,
+   "wbgtF": 80,
+   "flag": "Red"
+  },
+  {
+   "tempF": 90,
+   "dewpointF": 75,
+   "solarWm2": 900,
+   "wbgtF": 86,
+   "flag": "Black"
+  }
+ ]
+}

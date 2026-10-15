@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+  The link preview (og:image), 1200 x 630. Rendered to img/og-v4.png by
+  tools/make_og.mjs. Messages shows it about 300 pt wide with the page title
+  ("Find your best time to run") underneath, so the image doesn't repeat the
+  title, and nothing in it is smaller than 30 px: two blocks, name and line on
+  the left, the score ring on the right, and a day of hours along the bottom.
+-->
+<html><head><meta charset="utf-8"><style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    font-family: -apple-system, 'SF Pro Display', system-ui, sans-serif; color: #F4F6FB;
+    background:
+      radial-gradient(ellipse 460px 400px at 75% 50%, rgba(61,220,151,0.20), transparent 70%),
+      linear-gradient(180deg, #0F1A2C 0%, #0A1020 60%, #080B14 100%);
+    position: relative;
+  }
+  .left { position: absolute; left: 84px; top: 50%; transform: translateY(-50%); width: 560px; }
+  .brand { display: flex; align-items: center; gap: 22px; }
+  .brand img { width: 96px; height: 96px; border-radius: 22px; }
+  .brand span { font-size: 72px; font-weight: 700; letter-spacing: -1.5px; }
+  .line { margin-top: 44px; font-size: 64px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.06; }
+  .line em { font-style: normal; color: #3DDC97; }
+  .free { margin-top: 22px; font-size: 32px; font-weight: 600; color: rgba(244,246,251,0.62); }
+  .ring { position: absolute; left: 700px; top: 115px; width: 400px; height: 400px; }
+  .ring svg { position: absolute; inset: 0; }
+  .ring .num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding-bottom: 30px; }
+  .ring .n { font-size: 170px; font-weight: 300; letter-spacing: -6px; line-height: 1; }
+  .ring .band { margin-top: 10px; font-size: 34px; font-weight: 800; letter-spacing: 5px; color: #3DDC97; }
+  .ring .cap { margin-top: 6px; font-size: 22px; font-weight: 700; letter-spacing: 2px; color: rgba(244,246,251,0.58); }
+</style></head><body>
+  <div class="left">
+    <div class="brand"><img src="../img/icon.png" alt=""><span>ArcPace</span></div>
+    <div class="line">Every hour,<br>scored for a&nbsp;<em>run</em>.</div>
+    <div class="free">Free for iPhone</div>
+  </div>
+  <div class="ring">
+    <svg width="400" height="400" viewBox="0 0 400 400">
+      <!-- 80% arc, gap at the bottom, as the app's ring; filled to 96. -->
+      <circle cx="200" cy="200" r="172" fill="none" stroke="rgba(244,246,251,0.14)" stroke-width="32" stroke-linecap="round"
+        stroke-dasharray="864.6 2000" transform="rotate(126 200 200)"/>
+      <circle cx="200" cy="200" r="172" fill="none" stroke="url(#g)" stroke-width="32" stroke-linecap="round"
+        stroke-dasharray="830 2000" transform="rotate(126 200 200)"/>
+      <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#22B573"/><stop offset="1" stop-color="#6BEBA9"/></linearGradient></defs>
+    </svg>
+    <div class="num"><div class="n">96</div><div class="band">IDEAL</div><div class="cap">BEST AT 7 AM</div></div>
+  </div>
+  <script>
+    window.ready = true;
+  </script>
+</body></html>

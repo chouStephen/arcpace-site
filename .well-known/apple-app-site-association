@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["8Z338GQVVM.app.arcpace.mobile"],
+        "components": [
+          { "/": "/open", "comment": "Opens ArcPace on Today" },
+          { "/": "/open/*", "comment": "Opens ArcPace; the app routes the rest" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+# ArcPace
+
+> ArcPace is a free iPhone app (iOS 17 or later) that plans the best time to run. It scores every hour of the forecast from 0 to 100 for running, shows how many seconds per mile the weather will add to (or take off) your easy pace, says what to wear, and re-scores your past runs from Apple Health with the weather taken out. No account, no ads, and no data collected: runs and location stay on the phone.
+
+## Key facts
+- Availability: on the App Store, free: https://apps.apple.com/app/id6815307156
+- Platform: iPhone only, iOS 17+. No Android app. A free web calculator scores one hour of weather you describe: https://arcpace.app/calculator/
+- Price: free. No ads, no account, no subscription.
+- Weather data: Apple Weather (WeatherKit).
+- Run score bands: Ideal 93–100, Great 84–92, Good 66–83, Moderate 46–65, Hard 26–45, Severe below 26. Thunderstorms and freezing rain cap the score.
+- Pace cost: seconds per mile (or km) the weather adds to your easy pace, against an ordinary mild day; a cool, dry day comes back negative. It counts temperature, dew point, sun, wind, rain, snow and altitude, scaled to the runner's own pace (slower runners lose more in heat). The model itself is not published.
+- Heat stress: WBGT and the race heat flag (White, Green, Yellow, Red, Black) are shown for every hour.
+- Past runs: reads running workouts from Apple Health (read-only), scores the last 16 weeks against their weather, and shows a weather-adjusted fitness trend and bests. Works with any watch that saves runs to Apple Health, including Apple Watch, Garmin and COROS.
+- 10-day run forecast: each day's best and worst run score; tap a day to see it hour by hour.
+- Widgets: Home Screen and Lock Screen widgets with this hour's score and the best window ahead. Optional evening notification with tomorrow's best time to run.
+- Privacy: Data Not Collected (App Store privacy label). No accounts.
+
+## Heat and pace, in general
+Dew point matters as much as temperature: under about 55°F is comfortable, over 70°F oppressive. On a warm, humid morning easy runners typically lose roughly 15–40 seconds per mile, on a muggy one 25–60, more in full sun; slower runners lose more. For a given hour and pace, the app gives the number.
+
+## Calculator
+- [Running weather calculator](https://arcpace.app/calculator/): enter temperature, dew point, wind, sky, rain and easy pace; get the 0–100 run score, pace cost in seconds per mile or km, race heat flag and what to wear. Free, no sign-up.
+
+## Guides
+- [How to run in the heat: 12 ways to stay cool](https://arcpace.app/guides/running-in-the-heat/): timing, pacing by effort, wetting the skin, drinking to thirst with salt, and 10–14 days to adapt.
+- [Heat illness warning signs for runners](https://arcpace.app/guides/heat-illness-warning-signs/): heat cramps, heat exhaustion, heat stroke (call 911 and cool immediately), and hyponatremia.
+- [Running in the cold](https://arcpace.app/guides/running-in-the-cold/): layering, wind, ice, darkness, frostbite and hypothermia.
+- [Running in rain, wind, thunderstorms and smoke](https://arcpace.app/guides/rain-wind-storms-air-quality/): rain gear, wind tactics, lightning (go inside at thunder, wait 30 minutes), and AQI guidance.
+- [How much do heat and humidity slow your running pace?](https://arcpace.app/guides/running-pace-heat-humidity/): what drives the slowdown, why dew point matters, and why slower runners lose more.
+- [What to wear running, by temperature](https://arcpace.app/guides/what-to-wear-running-by-temperature/): kit from 10°F to 90°F.
+- [WBGT and race heat flags, explained](https://arcpace.app/guides/wbgt-running-heat-flags/): what each flag means.
+
+## Pages
+- [Home](https://arcpace.app/): features and FAQ.
+- [Support](https://arcpace.app/support/): contact support@arcpace.app.
+- [Privacy policy and terms](https://arcpace.app/privacy/)
