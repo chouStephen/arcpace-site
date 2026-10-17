@@ -29,6 +29,7 @@ Dew point matters as much as temperature: under about 55°F is comfortable, over
 - [How much do heat and humidity slow your running pace?](https://arcpace.app/guides/running-pace-heat-humidity/): what drives the slowdown, why dew point matters, and why slower runners lose more.
 - [What to wear running, by temperature](https://arcpace.app/guides/what-to-wear-running-by-temperature/): kit from 10°F to 90°F.
 - [WBGT and race heat flags, explained](https://arcpace.app/guides/wbgt-running-heat-flags/): what each flag means.
+- [Marathon race-day weather: how to read the forecast](https://arcpace.app/guides/marathon-race-day-weather/): start and finish hours, dew point, sun, wind on the course, start-line layers, and when to change your goal.
 
 ## Pages
 - [Home](https://arcpace.app/): features and FAQ.
