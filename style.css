@@ -165,10 +165,8 @@ a.soon:hover { border-color: var(--accent-ink); }
 .footer a { color: var(--text-dim); text-decoration: none; }
 .footer a:hover { color: var(--accent-ink); text-decoration: underline; }
 .footer-social { align-items: center; }
-.footer .ph-badge { padding: 4px 0; line-height: 0; }
 .footer .social { display: inline-flex; padding: 12px 2px; line-height: 0; }
 .footer .social:hover { color: var(--accent-ink); }
-.footer .ph-badge:hover { text-decoration: none; }
 
 /* Top bar: name on the left, appearance on the right; stays put on scroll. */
 .topbar {
