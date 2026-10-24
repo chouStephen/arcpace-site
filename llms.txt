@@ -30,6 +30,7 @@ Dew point matters as much as temperature: under about 55°F is comfortable, over
 - [What to wear running, by temperature](https://arcpace.app/guides/what-to-wear-running-by-temperature/): kit from 10°F to 90°F.
 - [WBGT and race heat flags, explained](https://arcpace.app/guides/wbgt-running-heat-flags/): what each flag means.
 - [Marathon race-day weather: how to read the forecast](https://arcpace.app/guides/marathon-race-day-weather/): start and finish hours, dew point, sun, wind on the course, start-line layers, and when to change your goal.
+- [NYC Marathon weather: 10 years of race days](https://arcpace.app/guides/nyc-marathon-weather/): 10 AM and 2 PM weather for every race 2015–2025, what the warm 2022 race cost per mile, and what to wear by start temperature.
 
 ## Pages
 - [Home](https://arcpace.app/): features and FAQ.

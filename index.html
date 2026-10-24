@@ -39,7 +39,7 @@
   // ---- App Store link: the only place it lives. ----
   // Flip APP_LIVE to true once Apple approves ArcPace and the link opens a live page.
   const APP_LIVE = true;
-  const APP_STORE_URL = 'https://apps.apple.com/app/id6815307156';
+  const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6815307156?pt=129456503&ct=web-home&mt=8';
   // Until then, the public TestFlight beta.
   const TESTFLIGHT_URL = 'https://testflight.apple.com/join/ZhJBrcrc';
 </script>
@@ -72,7 +72,7 @@
       <p class="eyebrow">ArcPace</p>
       <h1>Find your best time to&nbsp;run.</h1>
       <p class="lede">Every hour gets a run score out of 100, plus what the weather will cost your pace and what to wear.</p>
-      <div class="store" data-store></div>
+      <div class="store" data-store><a href="https://apps.apple.com/app/apple-store/id6815307156?pt=129456503&amp;ct=web-home&amp;mt=8">Get ArcPace free on the App Store</a> (iPhone, iOS 17 or later)</div>
       <p class="fine">Free. No subscription, no account. Works with any watch that saves to Apple Health.</p>
     </div>
     <div class="hero-shot phone"><div class="bezel">
@@ -227,7 +227,7 @@
       <h2 id="faq-h">Questions</h2>
       <details>
         <summary>Is ArcPace free?</summary>
-        <p>Yes. No ads, no account and no subscription.</p>
+        <p>Yes. No ads, no account and no subscription. <a href="https://apps.apple.com/app/apple-store/id6815307156?pt=129456503&amp;ct=web-home-faq&amp;mt=8">Get it free on the App Store</a> for iPhone (iOS 17 or later).</p>
       </details>
       <details>
         <summary>What does the run score mean?</summary>
@@ -262,7 +262,7 @@
       <img class="app-icon small" src="img/icon.png" width="72" height="72" alt="" loading="lazy">
       <h2>What’s your run score right&nbsp;now?</h2>
       <p>Free for iPhone. No account, no ads.</p>
-      <div class="store" data-store></div>
+      <div class="store" data-store><a href="https://apps.apple.com/app/apple-store/id6815307156?pt=129456503&amp;ct=web-home&amp;mt=8">Get ArcPace free on the App Store</a> (iPhone, iOS 17 or later)</div>
       <p class="fine">No iPhone? Try the <a href="calculator/">running weather calculator</a>.</p>
     </div>
   </section>
@@ -298,6 +298,7 @@
 <script>
   document.querySelectorAll('[data-store]').forEach(function (slot) {
     if (APP_LIVE) {
+      slot.textContent = '';
       var node = document.getElementById('badge').content.cloneNode(true);
       node.querySelector('a').href = APP_STORE_URL;
       slot.appendChild(node);

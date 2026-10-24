@@ -22,6 +22,8 @@ UPDATED = "2026-10-14"
 APP_LIVE = True
 APP_STORE_ID = "6815307156"
 APP_STORE_URL = f"https://apps.apple.com/app/id{APP_STORE_ID}"
+# App Store Connect campaign link: each page gets its own `ct`, so Analytics → Sources shows installs per page.
+def app_url(path): return f"https://apps.apple.com/app/apple-store/id{APP_STORE_ID}?pt=129456503&ct={('web-' + (path.strip('/').split('/')[-1] or 'guides'))[:40]}&mt=8"
 D = json.loads((ROOT / "tools/guide-data.json").read_text())
 
 esc = html.escape
@@ -84,10 +86,10 @@ STYLE = """
 PENDING = []
 
 
-def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line="Figures from the ArcPace weather model"):
+def page(path, title, description, h1, body, faq, crumb, sources=None, meta_line="Figures from the ArcPace weather model", updated=UPDATED):
     """Queue a page. Pages are written last, once every page's title is known for the related links."""
     PENDING.append(dict(path=path, title=title, description=description, h1=h1, body=body, faq=faq,
-                        crumb=crumb, sources=sources, meta_line=meta_line))
+                        crumb=crumb, sources=sources, meta_line=meta_line, updated=updated))
     return path
 
 
@@ -103,7 +105,7 @@ def anchors(markup):
     return re.sub(r"<h2>(.*?)</h2>", one, markup)
 
 
-def render(path, title, description, h1, body, faq, crumb, sources, meta_line, related_html=""):
+def render(path, title, description, h1, body, faq, crumb, sources, meta_line, related_html="", updated=UPDATED):
     """One guide page: its own title and description, Article, FAQPage and BreadcrumbList data."""
     url = f"{SITE}/{path}"
     ld = [
@@ -113,8 +115,8 @@ def render(path, title, description, h1, body, faq, crumb, sources, meta_line, r
             "headline": h1,
             "description": description,
             "url": url,
-            "datePublished": UPDATED,
-            "dateModified": UPDATED,
+            "datePublished": updated,
+            "dateModified": updated,
             "author": {"@type": "Organization", "name": "ArcPace", "url": SITE + "/"},
             "publisher": {"@type": "Organization", "name": "ArcPace", "url": SITE + "/",
                           "logo": {"@type": "ImageObject", "url": SITE + "/img/icon.png"}},
@@ -187,11 +189,11 @@ def render(path, title, description, h1, body, faq, crumb, sources, meta_line, r
     </div></div></nav>
 <main>
 <h1>{esc(h1)}</h1>
-<p class="meta">Updated {UPDATED} · {meta_line}</p>
+<p class="meta">Updated {updated} · {meta_line}</p>
 {anchors(body)}
 {anchors(faq_html)}
 {related_html}
-<div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. {'<a href="' + APP_STORE_URL + '">Get it on the App Store</a>' if APP_LIVE else '<a href="/">See the app</a>'}</p></div>
+<div class="cta"><p><strong>ArcPace</strong> scores every hour of your forecast 0–100, with the pace cost at your easy pace and what to wear. Free for iPhone. {'<a href="' + app_url(path) + '">Get it on the App Store</a>' if APP_LIVE else '<a href="/">See the app</a>'}</p></div>
 <footer><a href="/">Home</a><a href="/calculator/">Calculator</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>
 <script src="/theme.js"></script>
@@ -412,7 +414,7 @@ for f in sorted((ROOT / "content").glob("*.html")):
         raise SystemExit(f"{f.name}: no value for {left}")
     path = f"guides/{meta['slug']}/"
     page(path, meta["title"], meta["description"], meta["h1"], body, meta["faq"], meta["crumb"],
-         meta.get("sources"), "General guidance, not medical advice")
+         meta.get("sources"), "General guidance, not medical advice", meta.get("updated", UPDATED))
     ARTICLES.append((path, meta["listTitle"], meta["listBlurb"]))
 ORDER = ["running-in-the-heat", "heat-illness-warning-signs", "running-in-the-cold", "rain-wind-storms-air-quality"]
 ARTICLES.sort(key=lambda a: ORDER.index(a[0].split("/")[1]) if a[0].split("/")[1] in ORDER else 99)
@@ -447,7 +449,10 @@ for spec in PENDING:
     render(related_html=related_html, **spec)
 
 urls = ["", "calculator/", "guides/"] + [p for p, _, _ in ARTICLES] + [p for p, _, _ in GUIDES] + ["support/", "privacy/"]
-sitemap = "\n".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{UPDATED}</lastmod></url>" for u in urls)
+# lastmod: a page's own "updated" date; pages built elsewhere (home, privacy...) keep the date already in the sitemap.
+_old = dict(re.findall(r"<loc>" + re.escape(SITE) + r"/([^<]*)</loc><lastmod>([^<]+)</lastmod>", (ROOT / "sitemap.xml").read_text())) if (ROOT / "sitemap.xml").exists() else {}
+_mod = {spec["path"]: spec["updated"] for spec in PENDING}
+sitemap = "\n".join(f"  <url><loc>{SITE}/{u}</loc><lastmod>{_mod.get(u) or _old.get(u) or UPDATED}</lastmod></url>" for u in urls)
 (ROOT / "sitemap.xml").write_text(
     f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sitemap}\n</urlset>\n')
 print("built", len(GUIDES) + len(ARTICLES) + 1, "pages and sitemap.xml")
