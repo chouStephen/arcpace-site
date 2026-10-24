@@ -326,10 +326,14 @@ a.soon:hover { border-color: var(--accent-ink); }
 :root { --ring48: rgb(214, 82, 5); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ring48: rgb(242, 166, 90); } }
 :root[data-theme="dark"] { --ring48: rgb(242, 166, 90); }
-.vs-hero { height: 64px; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+/* The score is set in the temperature's own type, so the two readings are the
+   same size; the ring is the smallest that holds it. Both cards share the
+   ring's height, so the text under them starts level. */
+.vs-hero { height: 104px; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .vs-temp { font-size: 52px; font-weight: 300; letter-spacing: -0.03em; line-height: 1; color: var(--text); }
-.ring { color: var(--text); overflow: visible; }
-.ring text { font: 600 22px -apple-system, BlinkMacSystemFont, "SF Pro Rounded", system-ui, sans-serif; fill: var(--text); }
+.ringbox { position: relative; width: 104px; height: 104px; flex: none; display: grid; place-items: center; }
+.ring { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--text); overflow: visible; }
+.ring-num { position: relative; }
 .reveal-on .versus .wrap:not(.in) .ring-fill { stroke-dasharray: 0 400; }
 .ring-fill { transition: stroke-dasharray 1.1s cubic-bezier(.2, .7, .2, 1) .25s; }
 
