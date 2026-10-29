@@ -195,6 +195,7 @@ def render(path, title, description, h1, body, faq, crumb, sources, meta_line, r
 <footer><a href="/">Home</a><a href="/calculator/">Calculator</a><a href="/guides/">Guides</a><a href="/support/">Support</a><a href="/privacy/">Privacy</a></footer>
 </main>
 <script src="/theme.js"></script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "8eb1d101134840ad957fc4443d5d909c"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 """
